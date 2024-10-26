@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   darkMode: ['class'],
@@ -61,6 +61,8 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       animation: {
+        shimmer: 'shimmer 2s linear infinite',
+
         gradient: 'gradient 3s linear infinite',
       },
       keyframes: {
@@ -68,9 +70,17 @@ const config: Config = {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
+        shimmer: {
+          from: {
+            backgroundPosition: '0 0',
+          },
+          to: {
+            backgroundPosition: '-200% 0',
+          },
+        },
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 }
-export default config;
+export default config

@@ -1,326 +1,173 @@
 'use client'
 
-import { BackgroundLines } from '@/components/ui/background-lines'
-import { Button } from '@/components/ui/button'
-import { AnimatePresence, motion } from 'framer-motion'
-import {
-  ArrowRight,
-  BookOpen,
-  Globe,
-  GraduationCap,
-  MapPin,
-  Plane,
-  Star,
-} from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
-const floatingAnimation = {
-  initial: { y: 0 },
-  animate: {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    },
-  },
-}
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
-}
-
-const features = [
-  {
-    icon: GraduationCap,
-    text: 'Expert University Guidance',
-    color: 'from-blue-600 to-blue-400',
-    description: '1000+ Universities',
-  },
-  {
-    icon: Globe,
-    text: 'Global Education Network',
-    color: 'from-purple-600 to-purple-400',
-    description: '50+ Countries',
-  },
-  {
-    icon: BookOpen,
-    text: 'Personalized Course Selection',
-    color: 'from-pink-600 to-pink-400',
-    description: '500+ Courses',
-  },
-  {
-    icon: Plane,
-    text: 'Visa Application Support',
-    color: 'from-indigo-600 to-indigo-400',
-    description: '99% Success Rate',
-  },
-]
-
-const destinations = [
-  { name: 'USA', count: '500+', icon: MapPin },
-  { name: 'UK', count: '300+', icon: MapPin },
-  { name: 'Canada', count: '250+', icon: MapPin },
-  { name: 'Australia', count: '200+', icon: MapPin },
-]
-
-export function HeroSection() {
+export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-orange-50 via-white to-blue-50">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1 }}
-          className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-br from-blue-400 to-blue-200 rounded-full blur-3xl"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-orange-400 to-yellow-200 rounded-full blur-3xl"
-        />
+    <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20" />
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20" />
       </div>
 
-      <div className="container mx-auto px-4 pt-20 lg:pt-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            className="space-y-10"
-          >
-            {/* Enhanced Badge */}
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="container mx-auto px-4">
+          {/* Hero Content */}
+          <div className="grid md:grid-cols-2 gap-12 min-h-screen items-center py-12">
+            {/* Left Column */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm px-6 py-3.5 rounded-full shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="space-y-8"
             >
-              <div className="flex items-center gap-2">
-                <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Star className="w-4 h-4 text-white animate-pulse" />
-                </div>
-                <span className="text-sm font-semibold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
-                  #1 Education Consultancy in India
-                </span>
+              <span className="inline-block px-4 py-2 bg-white/70 backdrop-blur-lg rounded-full text-blue-600 font-medium text-sm shadow-sm">
+                Global Education Consultancy
+              </span>
+
+              <h1 className="text-5xl md:text-7xl font-bold text-blue-950 leading-tight">
+                Your Journey to{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  Global Education
+                </span>{' '}
+                Starts Here
+              </h1>
+              <p className="text-xl text-blue-800/80 max-w-2xl">
+                Expert guidance for international education, test preparation,
+                and visa assistance. Transform your academic dreams into
+                reality.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/consultation"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Get Free Consultation
+                    <svg
+                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
+                </Link>
+                <Link
+                  href="/services"
+                  className="px-8 py-4 bg-white/70 backdrop-blur-lg text-blue-900 rounded-2xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Explore Services
+                </Link>
               </div>
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className="w-3 h-3 text-yellow-400 fill-yellow-400"
-                  />
+
+              {/* Stats Section */}
+              <div className="grid grid-cols-3 gap-8 pt-8">
+                {[
+                  { number: '15k+', label: 'Students Placed' },
+                  { number: '50+', label: 'Universities' },
+                  { number: '25+', label: 'Countries' },
+                ].map((stat) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                    className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 text-center"
+                  >
+                    <div className="text-3xl font-bold text-blue-950">
+                      {stat.number}
+                    </div>
+                    <div className="text-blue-700 text-sm">{stat.label}</div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Enhanced Heading and Description */}
-            <div className="space-y-6">
-              <motion.h1
-                variants={fadeInUp}
-                className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight"
-              >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
-                  Your Gateway to
-                </span>
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
-                  Global Excellence
-                </span>
-              </motion.h1>
-              <motion.p
-                variants={fadeInUp}
-                className="text-lg text-gray-600 max-w-xl leading-relaxed"
-              >
-                Transform your academic journey with expert guidance. Let us
-                help you navigate the path to world-class universities with
-                personalized support at every step.
-              </motion.p>
-            </div>
-
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-300" />
-                <Button
-                  size="pill-lg"
-                  variant="gradient"
-                  className="relative flex items-center gap-2 group/button"
-                >
-                  <span className="relative z-10">Check Eligibility!</span>
-                  <span className="relative z-10">
-                    <ArrowRight className="w-5 h-5 group-hover/button:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500 opacity-0 group-hover/button:opacity-100 transition-all duration-500 bg-[length:200%] animate-gradient rounded-full" />
-                </Button>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-slate-200 to-blue-100 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-300" />
-                <Button
-                  size="pill-lg"
-                  variant="modern"
-                  className="relative group/button border-slate-200 hover:border-blue-200 backdrop-blur-sm"
-                >
-                  <span className="relative z-10 bg-gradient-to-r from-slate-900 to-slate-800 bg-clip-text text-transparent">
-                    Book FREE counselling session!
-                  </span>
-                </Button>
-              </motion.div>
-            </div>
-
-            {/* Enhanced Feature Cards */}
-            <div className="grid grid-cols-2 gap-5">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  initial="initial"
-                  animate="animate"
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div
-                    className={`absolute -inset-1 bg-gradient-to-r ${feature.color} rounded-xl blur opacity-0 group-hover:opacity-25 transition duration-300`}
-                  />
-                  <div className="relative flex flex-col gap-2 bg-white/90 backdrop-blur-sm p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`bg-gradient-to-r ${feature.color} p-2.5 rounded-lg text-white group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <feature.icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-gray-800 font-semibold group-hover:text-blue-600 transition-colors duration-300">
-                        {feature.text}
-                      </span>
-                    </div>
-                    <span className="text-sm text-gray-500 pl-12">
-                      {feature.description}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right Image Section */}
-          <motion.div
-            variants={floatingAnimation}
-            initial="initial"
-            animate="animate"
-            className="relative"
-          >
-            <div className="relative z-10">
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white to-blue-50 p-6 shadow-2xl border border-blue-100">
-                {/* Background Lines */}
-                <div className="absolute inset-0 -z-10">
-                  <BackgroundLines
-                    className="opacity-[0.15]"
-                    svgOptions={{ duration: 15 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent" />
-                  </BackgroundLines>
-                </div>
-
+            {/* Right Column */}
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative"
+            >
+              <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/student-hero.png"
-                  alt="Student with graduation aspirations"
-                  width={600}
-                  height={700}
-                  className="relative z-10 rounded-2xl transform transition-transform duration-500 hover:scale-105"
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+                  alt="Students collaborating"
+                  fill
+                  className="object-cover"
                   priority
                 />
-
-                {/* Floating Elements */}
-                <AnimatePresence>
-                  {destinations.map((dest, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                        transition: { delay: index * 0.2 },
-                      }}
-                      className={`absolute ${getPosition(
-                        index
-                      )} bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <dest.icon className="w-4 h-4 text-blue-600" />
-                        <span className="font-bold text-blue-600">
-                          {dest.count}
-                        </span>
-                        <span className="text-sm text-gray-600">
-                          {dest.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-
-                {/* Decorative Elements */}
-                <motion.div
-                  variants={floatingAnimation}
-                  className="absolute top-10 right-10 bg-gradient-to-r from-blue-600 to-blue-400 p-3 rounded-full shadow-lg text-white"
-                >
-                  <GraduationCap className="w-6 h-6" />
-                </motion.div>
-                <motion.div
-                  variants={floatingAnimation}
-                  transition={{ delay: 0.2 }}
-                  className="absolute bottom-20 left-10 bg-gradient-to-r from-purple-600 to-purple-400 p-3 rounded-full shadow-lg text-white"
-                >
-                  <Globe className="w-6 h-6" />
-                </motion.div>
-                <motion.div
-                  variants={floatingAnimation}
-                  transition={{ delay: 0.4 }}
-                  className="absolute top-20 left-10 bg-gradient-to-r from-pink-600 to-pink-400 p-3 rounded-full shadow-lg text-white"
-                >
-                  <Plane className="w-6 h-6" />
-                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
               </div>
-            </div>
 
-            {/* Background Decorative Elements */}
-            <div className="absolute -z-10 top-10 right-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-blue-300/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute -z-10 bottom-10 left-10 w-72 h-72 bg-gradient-to-r from-orange-400/20 to-yellow-300/20 rounded-full blur-3xl animate-pulse" />
-          </motion.div>
+              {/* Floating Info Card */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="absolute -bottom-10 -left-10 bg-white rounded-3xl p-6 shadow-xl max-w-md backdrop-blur-lg"
+              >
+                <h2 className="text-2xl font-bold mb-2 text-blue-950">
+                  Expert Guidance Available
+                </h2>
+                <p className="text-blue-700 mb-4">
+                  Get personalized support throughout your journey
+                </p>
+                <div className="flex justify-between items-center">
+                  <div className="flex gap-4">
+                    <span className="px-3 py-1 bg-blue-50 rounded-full text-blue-700">
+                      Study Abroad
+                    </span>
+                    <span className="px-3 py-1 bg-purple-50 rounded-full text-purple-700">
+                      Test Prep
+                    </span>
+                  </div>
+                  <span className="text-xl font-medium text-blue-950">01</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
+
+        {/* Contact Button */}
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="fixed bottom-8 right-8 group"
+        >
+          <div className="relative p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+            <span className="absolute -top-12 right-0 whitespace-nowrap bg-white px-4 py-2 rounded-xl text-blue-900 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              Contact Us
+            </span>
+            <svg
+              className="w-6 h-6 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z"
+              />
+            </svg>
+          </div>
+        </motion.button>
       </div>
     </section>
   )
-}
-
-// Helper function to position the destination cards
-function getPosition(index: number) {
-  const positions = [
-    'top-10 right-10',
-    'bottom-20 right-10',
-    'bottom-20 left-10',
-    'top-20 left-10',
-  ]
-  return positions[index]
 }

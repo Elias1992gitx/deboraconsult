@@ -1,11 +1,11 @@
-import { HeroSection } from '@/components/hero-section'
+import CTA from '@/components/cta'
+import HeroSection from '@/components/hero-section'
 
-const page = () => {
+export default function Page() {
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
       <HeroSection />
+      <CTA />
     </div>
   )
 }
-
-export default page
