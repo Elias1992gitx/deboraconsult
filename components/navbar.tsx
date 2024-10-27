@@ -153,18 +153,62 @@ export default function Navbar() {
         >
           <Search className="h-5 w-5" />
         </motion.button>
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="relative"
+        >
           <Button
             className={cn(
-              'bg-gradient-to-r from-orange-500 to-orange-600',
-              'hover:from-orange-600 hover:to-orange-700',
-              'text-white font-medium',
-              'shadow-lg hover:shadow-orange-500/25',
-              'transition-all duration-300'
+              'relative overflow-hidden bg-[#30745c] text-white font-medium px-8 py-2.5 rounded-full',
+              'shadow-[0_0_20px_rgba(48,116,92,0.5)]',
+              'border border-[#30745c]/50',
+              'before:absolute before:inset-0 before:rounded-full',
+              'before:bg-[#30745c]',
+              'after:absolute after:inset-0 after:rounded-full',
+              'after:bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)]',
+              'after:mix-blend-soft-light',
+              'after:animate-shine after:bg-[length:250%_100%]',
+              'hover:shadow-[0_0_25px_rgba(48,116,92,0.7)]',
+              'transition-all duration-300',
+              'group'
             )}
           >
-            CONTACT NOW
+            <span className="relative z-10">CONTACT NOW</span>
           </Button>
+          <motion.div
+            className="absolute inset-0 -z-10 rounded-full opacity-0"
+            initial={{ opacity: 0}}
+            whileHover={{
+              opacity: [0, 0.5, 0],
+              scale: [1, 1.2, 1.3],
+              transition: { 
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }
+            }}
+          >
+            {[...Array(6)].map((_, index) => (
+              <motion.div
+                key={index}
+                className="absolute inset-0 rounded-full bg-[#30745c]"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{
+                  opacity: [0, 0.5, 0],
+                  scale: [1, 1.2, 1.4],
+                  x: Math.random() * 20 - 10,
+                  y: Math.random() * 20 - 10,
+                }}
+                transition={{
+                  duration: 2 + Math.random(),
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  delay: index * 0.2,
+                }}
+              />
+            ))}
+          </motion.div>
         </motion.div>
       </div>
 

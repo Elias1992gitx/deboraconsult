@@ -62,13 +62,17 @@ const config: Config = {
       },
       animation: {
         shimmer: 'shimmer 2s linear infinite',
-
+        shine: 'shine 6s linear infinite',
         gradient: 'gradient 3s linear infinite',
       },
       keyframes: {
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        shine: {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
         },
         shimmer: {
           from: {

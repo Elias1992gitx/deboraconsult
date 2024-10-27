@@ -4,6 +4,7 @@ import CTA from '@/components/cta'
 import HeroSection from '@/components/hero-section'
 import LandingBlog from '@/components/landing-blog'
 import PromoSection from '@/components/promo-section'
+import {Testimonials} from '@/components/testimonial/index'
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <CTA />
       <LandingBlog />
       <PromoSection />
+      <Testimonials/>
     </main>
   )
 }
