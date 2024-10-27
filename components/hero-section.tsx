@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden pt-24">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20" />
@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="relative z-10">
         <div className="container mx-auto px-4">
           {/* Hero Content */}
-          <div className="grid md:grid-cols-2 gap-12 min-h-screen items-center py-12">
+          <div className="grid md:grid-cols-2 gap-12 min-h-[calc(100vh-6rem)] items-center py-12">
             {/* Left Column */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
@@ -25,10 +25,6 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
-              <span className="inline-block px-4 py-2 bg-white/70 backdrop-blur-lg rounded-full text-blue-600 font-medium text-sm shadow-sm">
-                Global Education Consultancy
-              </span>
-
               <h1 className="text-5xl md:text-7xl font-bold text-blue-950 leading-tight">
                 Your Journey to{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
