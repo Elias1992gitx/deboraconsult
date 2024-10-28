@@ -94,7 +94,12 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "p-8 rounded-xl h-full max-w-lg mx-2 border border-[rgba(255,255,255,0.10)] bg-[rgba(40,40,40,0.30)] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
+        "p-8 rounded-xl mx-2 relative",
+        "bg-[rgba(28,28,28,0.95)]",
+        "border border-[rgba(255,255,255,0.18)]",
+        "shadow-[0_4px_24px_rgba(0,0,0,0.25)]",
+        "group hover:bg-[rgba(32,32,32,0.95)]",
+        "transition-all duration-300",
         className
       )}
     >
@@ -111,7 +116,7 @@ export const Quote = ({
   className?: string;
 }) => {
   return (
-    <h3 className={cn("text-base font-semibold text-white py-2", className)}>
+    <h3 className={cn("text-base font-bold text-white py-2 leading-relaxed", className)}>
       {children}
     </h3>
   );
@@ -126,7 +131,7 @@ export const QuoteDescription = ({
 }) => {
   return (
     <p
-      className={cn("text-sm font-normal text-neutral-400 max-w-sm", className)}
+      className={cn("text-sm font-medium text-neutral-300 max-w-sm leading-normal", className)}
     >
       {children}
     </p>

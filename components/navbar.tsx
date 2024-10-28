@@ -5,6 +5,8 @@ import { ChevronDown, Globe, Menu, Search } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
+import Image from 'next/image'
+
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -114,32 +116,26 @@ export default function Navbar() {
       <div className="flex items-center">
         <Link href="/" className="flex items-center space-x-3 group">
           <motion.div
-            className="relative h-10 w-10 overflow-hidden rounded-full"
+            className="relative h-20 w-60 overflow-hidden rounded-full"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#30745c] to-[#19533e]"
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
+            <Image
+              src="/images/logo.png"
+              alt="Deborah's Study Abroad"
+              fill
+              className="object-contain transition-transform group-hover:scale-110"
+              priority
             />
-            <Globe className="absolute inset-0 h-full w-full p-2 text-white transition-transform group-hover:scale-110" />
           </motion.div>
-          <motion.span
+          {/* <motion.span
             className="text-xl font-semibold text-[#30745c]"
             whileHover={{ scale: 1.02 }}
           >
             Debora Consultancy
-          </motion.span>
+          </motion.span> */}
         </Link>
       </div>
-
       <div className="hidden md:flex items-center space-x-6">
         <NavItems />
       </div>
@@ -178,15 +174,15 @@ export default function Navbar() {
           </Button>
           <motion.div
             className="absolute inset-0 -z-10 rounded-full opacity-0"
-            initial={{ opacity: 0}}
+            initial={{ opacity: 0 }}
             whileHover={{
               opacity: [0, 0.5, 0],
               scale: [1, 1.2, 1.3],
-              transition: { 
+              transition: {
                 duration: 2,
                 repeat: Infinity,
-                repeatType: "reverse"
-              }
+                repeatType: 'reverse',
+              },
             }}
           >
             {[...Array(6)].map((_, index) => (
@@ -203,7 +199,7 @@ export default function Navbar() {
                 transition={{
                   duration: 2 + Math.random(),
                   repeat: Infinity,
-                  repeatType: "reverse",
+                  repeatType: 'reverse',
                   delay: index * 0.2,
                 }}
               />
