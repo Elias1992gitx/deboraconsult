@@ -1,96 +1,96 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
+// "use client";
+// import React from "react";
+// import { motion } from "framer-motion";
+// import dynamic from "next/dynamic";
 
-const World = dynamic(
-  () => import('@/components/ui/globe').then((m) => m.World),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-[40rem] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#30745c]"></div>
-      </div>
-    ),
-  }
-);
+// const World = dynamic(
+//   () => import('@/components/ui/globe').then((m) => m.World),
+//   {
+//     ssr: false,
+//     loading: () => (
+//       <div className="w-full h-[40rem] flex items-center justify-center">
+//         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#30745c]"></div>
+//       </div>
+//     ),
+//   }
+// );
 
-export function GlobeDemo() {
-  const globeConfig = {
-    pointSize: 4,
-    globeColor: "#30745c",
-    showAtmosphere: true,
-    atmosphereColor: "#ffffff",
-    atmosphereAltitude: 0.1,
-    emissive: "#062056",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
-    arcTime: 1000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    initialPosition: { lat: 22.3193, lng: 114.1694 },
-    autoRotate: true,
-    autoRotateSpeed: 0.5,
-  };
+// export function GlobeDemo() {
+//   const globeConfig = {
+//     pointSize: 4,
+//     globeColor: "#30745c",
+//     showAtmosphere: true,
+//     atmosphereColor: "#ffffff",
+//     atmosphereAltitude: 0.1,
+//     emissive: "#062056",
+//     emissiveIntensity: 0.1,
+//     shininess: 0.9,
+//     polygonColor: "rgba(255,255,255,0.7)",
+//     ambientLight: "#38bdf8",
+//     directionalLeftLight: "#ffffff",
+//     directionalTopLight: "#ffffff",
+//     pointLight: "#ffffff",
+//     arcTime: 1000,
+//     arcLength: 0.9,
+//     rings: 1,
+//     maxRings: 3,
+//     initialPosition: { lat: 22.3193, lng: 114.1694 },
+//     autoRotate: true,
+//     autoRotateSpeed: 0.5,
+//   };
 
-  const colors = ["#30745c", "#3b82f6", "#6366f1"];
+//   const colors = ["#30745c", "#3b82f6", "#6366f1"];
   
-  const sampleArcs = [
-    {
-      order: 1,
-      startLat: 51.5074,
-      startLng: -0.1278,
-      endLat: 40.7128,
-      endLng: -74.0060,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      order: 1,
-      startLat: 35.6762,
-      startLng: 139.6503,
-      endLat: 22.3193,
-      endLng: 114.1694,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    // Add more arcs as needed
-  ];
+//   const sampleArcs = [
+//     {
+//       order: 1,
+//       startLat: 51.5074,
+//       startLng: -0.1278,
+//       endLat: 40.7128,
+//       endLng: -74.0060,
+//       arcAlt: 0.3,
+//       color: colors[Math.floor(Math.random() * colors.length)],
+//     },
+//     {
+//       order: 1,
+//       startLat: 35.6762,
+//       startLng: 139.6503,
+//       endLat: 22.3193,
+//       endLng: 114.1694,
+//       arcAlt: 0.2,
+//       color: colors[Math.floor(Math.random() * colors.length)],
+//     },
+//     // Add more arcs as needed
+//   ];
 
-  return (
-    <div className="flex flex-col items-center justify-center py-20 min-h-screen md:h-auto bg-gradient-to-br from-white via-blue-50 to-green-50 relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#30745c] mb-4">
-            Global Education Network
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Join our network of international universities and educational institutions.
-            Your journey to global education starts here.
-          </p>
-        </motion.div>
+//   return (
+//     <div className="flex flex-col items-center justify-center py-20 min-h-screen md:h-auto bg-gradient-to-br from-white via-blue-50 to-green-50 relative w-full">
+//       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 1 }}
+//           className="text-center mb-12"
+//         >
+//           <h2 className="text-3xl md:text-4xl font-bold text-[#30745c] mb-4">
+//             Global Education Network
+//           </h2>
+//           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+//             Join our network of international universities and educational institutions.
+//             Your journey to global education starts here.
+//           </p>
+//         </motion.div>
         
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none from-transparent to-white z-40" />
-        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-          <World data={sampleArcs} globeConfig={globeConfig} />
-        </div>
-      </div>
-    </div>
-  );
-}
+//         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none from-transparent to-white z-40" />
+//         <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+//           <World data={sampleArcs} globeConfig={globeConfig} />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
-export default GlobeDemo;
+// export default GlobeDemo;
 
 
 

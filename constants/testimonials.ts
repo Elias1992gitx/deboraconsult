@@ -79,4 +79,18 @@ export const testimonials = [
     quote:
       'Working with Tekletsadik on AI and machine learning projects was a great experience. His problem-solving skills are commendable.',
   },
+  {
+    name: 'Getnet Aseffa',
+    quote:
+      "Tekletsadik's proficiency in Flutter and his adherence to agile methodologies were valuable assets in our mobile application development projects.",
+    src: 'https://i.pravatar.cc/150?img=5',
+    designation: 'CTO, EagleLion System Technology',
+  },
+  {
+    name: 'Prof. Yalemzewd Negash',
+    quote:
+      "As Tekletsadik's former professor, I was consistently impressed by his dedication to computer software engineering. His academic performance was exemplary.",
+    src: 'https://i.pravatar.cc/150?img=6',
+    designation: 'Dean of Computing, Arbaminch University',
+  },
 ]

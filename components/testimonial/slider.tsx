@@ -55,7 +55,7 @@ export const TestimonialsSlider = () => {
 
   return (
     <section>
-      <div className="max-w-3xl mx-auto  relative z-40 h-80">
+      <div className="max-w-3xl mx-auto relative z-40 h-80">
         <div className="relative pb-12 md:pb-20">
           {/* Particles animation */}
           <div className="absolute left-1/2 -translate-x-1/2 -top-2 -z-10 w-80 h-20 -mt-6">
@@ -66,15 +66,15 @@ export const TestimonialsSlider = () => {
               maxSize={1}
               particleDensity={100}
               className="w-full h-full"
-              particleColor="#FFFFFF"
+              particleColor="#000000"
             />
           </div>
 
           {/* Carousel */}
           <div className="text-center">
             {/* Testimonial image */}
-            <div className="relative h-40 [mask-image:_linear-gradient(0deg,transparent,#FFFFFF_30%,#FFFFFF)] md:[mask-image:_linear-gradient(0deg,transparent,#FFFFFF_40%,#FFFFFF)]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-400/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-neutral-900 after:m-px before:-z-20 after:-z-20">
+            <div className="relative h-40 [mask-image:_linear-gradient(0deg,transparent,#000000_30%,#000000)] md:[mask-image:_linear-gradient(0deg,transparent,#000000_40%,#000000)]">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-600/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-white after:m-px before:-z-20 after:-z-20">
                 {testimonials.map((item, index) => (
                   <Transition
                     key={index}
@@ -115,7 +115,7 @@ export const TestimonialsSlider = () => {
                     leaveTo="opacity-0 translate-x-4"
                     beforeEnter={() => heightFix()}
                   >
-                    <div className="text-base md:text-xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-200">
+                    <div className="text-base md:text-xl font-bold text-neutral-900 bg-clip-text">
                       {item.quote}
                     </div>
                   </Transition>
@@ -127,9 +127,9 @@ export const TestimonialsSlider = () => {
               {testimonials.map((item, index) => (
                 <button
                   className={cn(
-                    `px-2 py-1 rounded-full m-1.5 text-xs border border-transparent text-neutral-300 transition duration-150 ease-in-out [background:linear-gradient(theme(colors.neutral.900),_theme(colors.neutral.900))_padding-box,_conic-gradient(theme(colors.neutral.400),_theme(colors.neutral.700)_25%,_theme(colors.neutral.700)_75%,_theme(colors.neutral.400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-neutral-800/30 before:rounded-full before:pointer-events-none ${
+                    `px-2 py-1 rounded-full m-1.5 text-xs border border-transparent text-neutral-700 transition duration-150 ease-in-out [background:linear-gradient(theme(colors.white),_theme(colors.white))_padding-box,_conic-gradient(theme(colors.neutral.600),_theme(colors.neutral.300)_25%,_theme(colors.neutral.300)_75%,_theme(colors.neutral.600)_100%)_border-box] relative before:absolute before:inset-0 before:bg-neutral-100/30 before:rounded-full before:pointer-events-none ${
                       active === index
-                        ? 'border-secondary/50'
+                        ? 'border-primary/50'
                         : 'border-transparent opacity-70'
                     }`
                   )}
@@ -140,14 +140,14 @@ export const TestimonialsSlider = () => {
                   }}
                 >
                   <span className="relative">
-                    <span className="text-neutral-50 font-bold">
+                    <span className="text-neutral-900 font-bold">
                       {item.name}
                     </span>{' '}
                     <br className="block sm:hidden" />
-                    <span className="text-neutral-600 hidden sm:inline-block">
+                    <span className="text-neutral-400 hidden sm:inline-block">
                       -
                     </span>{' '}
-                    <span className="hidden sm:inline-block">
+                    <span className="hidden sm:inline-block text-neutral-600">
                       {item.designation}
                     </span>
                   </span>
