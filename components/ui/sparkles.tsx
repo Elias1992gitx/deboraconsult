@@ -19,9 +19,6 @@ type ParticlesProps = {
   particleDensity?: number;
 };
 
-// Replace any with a more specific type union
-type ConfigType = string | number | boolean | object | undefined;
-
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,

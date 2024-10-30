@@ -116,8 +116,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Experience the crossroads of Europe and Asia with Turkey's modern
-          educational infrastructure.
+          Experience Turkey&apos;s modern educational infrastructure.
         </p>
         <p>Key benefits include:</p>
         <ul className="list-disc pl-5 space-y-2">
