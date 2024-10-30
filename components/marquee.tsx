@@ -13,7 +13,6 @@ interface University {
 }
 
 const universities: University[] = [
-
   {
     name: 'Stanford University',
     country: 'United States',
@@ -62,7 +61,6 @@ const universities: University[] = [
     stats: '275+ Courses',
     link: 'https://www.princeton.edu',
   },
-
   {
     name: 'TU Munich',
     country: 'Germany',
@@ -71,7 +69,6 @@ const universities: University[] = [
     stats: '260+ Courses',
     link: 'https://www.tum.de',
   },
-
   {
     name: 'National University of Singapore',
     country: 'Singapore',
@@ -79,7 +76,7 @@ const universities: University[] = [
     description: "Asia's leading global university",
     stats: '330+ Courses',
     link: 'https://www.nus.edu.sg',
-  }
+  },
 ]
 
 const UniversityCard: React.FC<University> = ({
@@ -91,47 +88,66 @@ const UniversityCard: React.FC<University> = ({
   link,
 }) => {
   return (
-    <Link href={link} target="_blank" rel="noopener noreferrer">
+    <Link
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
+    >
       <figure
         className={cn(
-          'relative w-[200px] cursor-pointer overflow-hidden rounded-xl p-5',
-          'bg-gradient-to-br from-white via-white to-blue-50/50',
-          'transition-all duration-300 hover:shadow-2xl hover:-translate-y-1',
-          'mx-3 group border border-blue-100/20',
-          'backdrop-blur-sm hover:backdrop-blur-lg',
-          'before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-50/50 before:via-white/50 before:to-purple-50/50 before:opacity-0 before:transition-opacity hover:before:opacity-100',
-          'after:absolute after:inset-0 after:bg-white/10 after:opacity-0 hover:after:opacity-100 after:transition-opacity',
-          'hover:border-blue-200/30',
-          'shadow-lg shadow-blue-500/5'
+          'relative w-[200px] overflow-hidden rounded-xl p-5',
+          'bg-white/90 dark:bg-gray-800/95',
+          'backdrop-filter backdrop-blur-md',
+          'border border-white/20 dark:border-gray-700/30',
+          'shadow-xl shadow-black/5 dark:shadow-black/30',
+          'transition-all duration-300',
+          'hover:shadow-2xl hover:-translate-y-1',
+          'hover:bg-white/95 dark:hover:bg-gray-800/90',
+          'before:absolute before:inset-0',
+          'before:bg-gradient-to-br',
+          'before:from-blue-50/50 before:via-white/50 before:to-purple-50/50',
+          'dark:before:from-gray-900/50 dark:before:via-gray-800/50 dark:before:to-blue-900/50',
+          'before:opacity-0 before:transition-opacity hover:before:opacity-100',
+          'after:absolute after:inset-0',
+          'after:bg-gradient-to-br after:from-white/10 after:to-blue-500/5',
+          'dark:after:from-blue-500/10 dark:after:to-purple-500/5',
+          'after:opacity-0 hover:after:opacity-100',
+          'after:transition-opacity',
+          'mx-3',
+          'cursor-pointer'
         )}
       >
         <div className="relative z-10 flex flex-col items-center gap-3">
           <div className="relative h-14 w-full transition-transform duration-300 group-hover:scale-110">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 rounded-lg" />
-            <div className="absolute inset-0 bg-white/50 rounded-lg backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg" />
+            <div className="absolute inset-0 bg-white/50 dark:bg-gray-900/50 rounded-lg backdrop-blur-sm" />
             <Image
               src={logo}
               alt={`${name} logo`}
               fill
-              className="object-contain drop-shadow-lg p-1"
+              className="object-contain drop-shadow-lg p-1 transition-transform duration-300 dark:brightness-90"
               priority
             />
           </div>
+
           <div className="text-center space-y-1.5">
-            <figcaption className="text-sm font-semibold text-gray-900 line-clamp-1">
+            <figcaption className="text-sm font-semibold text-gray-900 dark:text-gray-100 line-clamp-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {name}
             </figcaption>
-            <div className="inline-block px-2.5 py-1 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 text-xs font-medium border border-blue-100/20">
+            <div className="inline-block px-2.5 py-1 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/50 dark:to-purple-900/50 text-blue-700 dark:text-blue-300 text-xs font-medium border border-blue-100/20 dark:border-blue-500/20">
               {country}
             </div>
           </div>
           <div className="text-center space-y-2">
-            <p className="text-[11px] text-gray-600 leading-relaxed line-clamp-2 px-2">
+            <p className="text-[11px] text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2 px-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
               {description}
             </p>
-            <div className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-green-50 to-blue-50 px-3 py-1 rounded-full">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-              <p className="text-[11px] font-medium text-blue-700">{stats}</p>
+            <div className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/50 dark:to-blue-900/50 px-3 py-1 rounded-full">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400 animate-pulse"></div>
+              <p className="text-[11px] font-medium text-blue-700 dark:text-blue-300">
+                {stats}
+              </p>
             </div>
           </div>
         </div>
@@ -142,12 +158,12 @@ const UniversityCard: React.FC<University> = ({
 
 export function MarqueeDemo() {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto text-center mb-16 px-4">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Deborah Consultancy Have Ties With Eminent Universities
         </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           As official partners of these universities, our overseas education
           consultants provide free career counselling for these universities.
         </p>
@@ -160,18 +176,18 @@ export function MarqueeDemo() {
           ))}
         </Marquee>
 
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-blue-50"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-blue-50"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-blue-50 dark:from-gray-900"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-blue-50 dark:from-gray-900"></div>
       </div>
 
       <div className="text-center mt-16">
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
           We are partnered with all top universities to bring you world-class
           educational opportunities.
         </p>
         <Link
           href="/universities"
-          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors"
+          className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-full font-medium transition-colors"
         >
           See All Universities
         </Link>

@@ -1,13 +1,12 @@
 'use client'
 
-import { Suspense } from 'react';
 import CTA from '@/components/cta'
 import HeroSection from '@/components/hero-section'
 import LandingBlog from '@/components/landing-blog'
 import PromoSection from '@/components/promo-section'
-import { Testimonials } from '@/components/testimonial/index'
+// import { Testimonials } from '@/components/testimonial/index'
 import { MarqueeDemo } from '@/components/marquee'
-// import GlobeDemo from '@/components/globedemo'
+import HeroSectionAlt from '@/components/hero-section-alt'
 
 export default function Page() {
   return (
@@ -15,20 +14,14 @@ export default function Page() {
       <HeroSection />
       <CTA />
       <MarqueeDemo />
+      <HeroSectionAlt />
       <LandingBlog />
       <PromoSection />
-      <Testimonials />
-      {/* <Suspense fallback={
-        <div className="w-full h-[40rem] flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#30745c]"></div>
-        </div>
-      }>
-        <GlobeDemo />
-      </Suspense> */}
+      
+      {/* <Testimonials /> */}
     </main>
   )
 }
-
 
 
 
@@ -62,3 +55,4 @@ export default function Page() {
 //     </main>
 //   )
 // }
+

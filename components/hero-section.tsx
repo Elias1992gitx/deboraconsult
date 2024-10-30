@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden pt-24">
@@ -25,14 +26,14 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-blue-950 leading-tight">
+              <h2 className="text-4xl md:text-6xl font-bold text-blue-950 leading-tight pl-8">
                 Your Journey to{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Global Education
                 </span>{' '}
                 Starts Here
-              </h1>
-              <p className="text-xl text-blue-800/80 max-w-2xl">
+              </h2>
+              <p className="text-xl text-blue-800/80 max-w-2xl pl-8">
                 Expert guidance for international education, test preparation,
                 and visa assistance. Transform your academic dreams into
                 reality.
@@ -40,10 +41,10 @@ export default function HeroSection() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/consultation"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group relative px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ml-8"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Get Free Consultation
+                    Get Expert Consultation
                     <svg
                       className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                       viewBox="0 0 24 24"
@@ -97,9 +98,9 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[500px] -mt-16 rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+                  src="/images/img.jpg"
                   alt="Students collaborating"
                   fill
                   className="object-cover"
@@ -113,24 +114,24 @@ export default function HeroSection() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="absolute -bottom-10 -left-10 bg-white rounded-3xl p-6 shadow-xl max-w-md backdrop-blur-lg"
+                className="absolute -bottom-20 -left-10 bg-white rounded-2xl p-4 shadow-xl max-w-sm backdrop-blur-lg"
               >
-                <h2 className="text-2xl font-bold mb-2 text-blue-950">
+                <h2 className="text-xl font-bold mb-1 text-blue-950">
                   Expert Guidance Available
                 </h2>
-                <p className="text-blue-700 mb-4">
+                <p className="text-blue-700 mb-3 text-sm">
                   Get personalized support throughout your journey
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="flex gap-4">
-                    <span className="px-3 py-1 bg-blue-50 rounded-full text-blue-700">
+                  <div className="flex gap-2">
+                    <span className="px-2 py-0.5 bg-blue-50 rounded-full text-blue-700 text-sm">
                       Study Abroad
                     </span>
-                    <span className="px-3 py-1 bg-purple-50 rounded-full text-purple-700">
+                    <span className="px-2 py-0.5 bg-purple-50 rounded-full text-purple-700 text-sm">
                       Test Prep
                     </span>
                   </div>
-                  <span className="text-xl font-medium text-blue-950">01</span>
+                  <span className="text-lg font-medium text-blue-950">01</span>
                 </div>
               </motion.div>
             </motion.div>

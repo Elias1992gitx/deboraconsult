@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { Transition } from "@headlessui/react";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
-// import Particles from './particles'
 
 interface Item {
   src: StaticImageData;
@@ -19,8 +18,17 @@ export const TestimonialsSlider = () => {
   const [active, setActive] = useState<number>(0);
   const [autorotate, setAutorotate] = useState<boolean>(true);
   const testimonialsRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   const testimonials = pageTestimonials.slice(0, 3);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   useEffect(() => {
     if (!autorotate) return;
@@ -77,7 +85,7 @@ export const TestimonialsSlider = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-600/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-white after:m-px before:-z-20 after:-z-20">
                 {testimonials.map((item, index) => (
                   <Transition
-                    key={index}
+                    key={`testimonial-image-${index}`}
                     show={active === index}
                     enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
                     enterFrom="opacity-0 -rotate-[60deg]"
@@ -105,7 +113,7 @@ export const TestimonialsSlider = () => {
               <div className="relative flex flex-col" ref={testimonialsRef}>
                 {testimonials.map((item, index) => (
                   <Transition
-                    key={index}
+                    key={`testimonial-text-${index}`}
                     show={active === index}
                     enter="transition ease-in-out duration-500 delay-200 order-first"
                     enterFrom="opacity-0 -translate-x-4"
@@ -133,10 +141,10 @@ export const TestimonialsSlider = () => {
                         : 'border-transparent opacity-70'
                     }`
                   )}
-                  key={index}
+                  key={`testimonial-button-${index}`}
                   onClick={() => {
-                    setActive(index)
-                    setAutorotate(false)
+                    setActive(index);
+                    setAutorotate(false);
                   }}
                 >
                   <span className="relative">
@@ -149,7 +157,7 @@ export const TestimonialsSlider = () => {
                     </span>{' '}
                     <span className="hidden sm:inline-block text-neutral-600">
                       {item.designation}
-                    </span>
+                    </span>{' '}
                   </span>
                 </button>
               ))}
@@ -158,5 +166,5 @@ export const TestimonialsSlider = () => {
         </div>
       </div>
     </section>
-  )
+  );
 };

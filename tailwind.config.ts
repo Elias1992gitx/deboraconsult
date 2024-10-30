@@ -60,6 +60,7 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		animation: {
+			        'subtle-drift': 'subtle-drift 10s ease-in-out infinite',
   			shimmer: 'shimmer 2s linear infinite',
   			shine: 'shine 6s linear infinite',
   			gradient: 'gradient 3s linear infinite',
@@ -75,6 +76,14 @@ const config: Config = {
   					backgroundPosition: '100% 50%'
   				}
   			},
+			'subtle-drift': {
+          '0%, 100%': {
+            transform: 'translate(0%, 0%) scale(1.0)',
+          },
+          '50%': {
+            transform: 'translate(1%, 1%) scale(1.05)',
+          },
+        },
   			shine: {
   				'0%': {
   					backgroundPosition: '200% center'
