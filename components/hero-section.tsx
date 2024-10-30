@@ -39,7 +39,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="space-y-6 sm:space-y-8"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 leading-tight pl-4 sm:pl-6 md:pl-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 leading-tight pl-2 sm:pl-6 md:pl-8">
                 Your Journey to{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Global Education
