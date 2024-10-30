@@ -17,8 +17,6 @@ export function GridPattern({
   x,
   y,
   squares,
-  className,
-  style,
   ...props
 }: GridPatternProps) {
   const patternId = useId();
