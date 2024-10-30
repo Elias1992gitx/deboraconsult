@@ -18,6 +18,10 @@ type ParticlesProps = {
   particleColor?: string;
   particleDensity?: number;
 };
+
+// Replace any with a more specific type union
+type ConfigType = string | number | boolean | object | undefined;
+
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,
@@ -79,7 +83,10 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                resize: true as any,
+                resize: {
+                  enable: true,
+                  delay: 0.5
+                },
               },
               modes: {
                 push: {
