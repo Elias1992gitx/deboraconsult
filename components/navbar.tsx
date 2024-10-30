@@ -33,7 +33,6 @@ const countryData = {
 type CountryKey = keyof typeof countryData;
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { scrollY } = useScroll()
 

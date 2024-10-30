@@ -15,6 +15,7 @@ import React, {
   useEffect,
   useRef,
   useState,
+  useCallback,
 } from 'react'
 
 interface CarouselProps {
@@ -161,6 +162,11 @@ export const DestinationCard = ({
   const containerRef = useRef<HTMLDivElement>(null)
   const { onCardClose } = useContext(CarouselContext)
 
+  const handleClose = useCallback(() => {
+    setOpen(false)
+    onCardClose(index)
+  }, [onCardClose, index])
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -176,17 +182,12 @@ export const DestinationCard = ({
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [open])
+  }, [open, handleClose])
 
   useOutsideClick(containerRef, () => handleClose())
 
   const handleOpen = () => {
     //setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-    onCardClose(index)
   }
 
   return (
@@ -347,7 +348,7 @@ export const destinations: Destination[] = [
     content: (
       <div className="space-y-4">
         <p>
-          Discover the blend of ancient culture and modern education in China's
+          Discover the blend of ancient culture and modern education in China&apos;s
           top universities.
         </p>
         <p>Key benefits include:</p>
@@ -397,7 +398,7 @@ export const destinations: Destination[] = [
     content: (
       <div className="space-y-4">
         <p>
-          Experience the crossroads of Europe and Asia with Turkey's modern
+          Experience the crossroads of Europe and Asia with Turkey&apos;s modern
           educational infrastructure.
         </p>
         <p>Key benefits include:</p>

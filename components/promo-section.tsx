@@ -77,9 +77,9 @@ export default function PromoSection() {
           </div>
           <div className="max-w-md">
             <p className="text-gray-600 mb-4">
-              Don't miss out on our exclusive education packages! Get special
-              discounts on university applications, test preparation, and
-              consultation services.
+              Don&apos;t miss out on our exclusive education packages! Get
+              special discounts on university applications, test preparation,
+              and consultation services.
             </p>
             <Link
               href="/consultation"

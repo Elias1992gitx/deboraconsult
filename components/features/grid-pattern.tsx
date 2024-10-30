@@ -1,6 +1,26 @@
 import { useId } from "react";
 
-export function GridPattern({ width, height, x, y, squares, ...props }: any) {
+interface GridPatternProps {
+  width: number;
+  height: number;
+  x: string;
+  y: string;
+  squares: number[][];
+  className?: string;
+  style?: React.CSSProperties;
+  [key: string]: string | number | number[][] | undefined | React.CSSProperties;
+}
+
+export function GridPattern({
+  width,
+  height,
+  x,
+  y,
+  squares,
+  className,
+  style,
+  ...props
+}: GridPatternProps) {
   const patternId = useId();
 
   return (

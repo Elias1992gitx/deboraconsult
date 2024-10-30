@@ -66,7 +66,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Discover the blend of ancient culture and modern education in China's
+          Discover the blend of ancient culture and modern education in China&apos;s
           top universities.
         </p>
         <p>Key benefits include:</p>
@@ -141,7 +141,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Discover Croatia's growing educational landscape with its blend of
+          Discover Croatia&apos;s growing educational landscape with its blend of
           traditional values and modern European standards.
         </p>
         <p>Key benefits include:</p>
@@ -167,7 +167,7 @@ const destinations = [
       <div className="space-y-4">
         <p>
           Experience cutting-edge technology and vibrant culture in South
-          Korea's dynamic educational environment.
+          Korea&apos;s dynamic educational environment.
         </p>
         <p>Key benefits include:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -217,7 +217,7 @@ const destinations = [
       <div className="space-y-4">
         <p>
           Experience world-class facilities and international standards in
-          Qatar's growing educational hub.
+          Qatar&apos;s growing educational hub.
         </p>
         <p>Key benefits include:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -241,7 +241,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Combine quality education with rich cultural experiences in Spain's
+          Combine quality education with rich cultural experiences in Spain&apos;s
           historic universities.
         </p>
         <p>Key benefits include:</p>
@@ -266,7 +266,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Experience South American culture while studying in Argentina's
+          Experience South American culture while studying in Argentina&apos;s
           prestigious educational institutions.
         </p>
         <p>Key benefits include:</p>
@@ -291,7 +291,7 @@ const destinations = [
     content: (
       <div className="space-y-4">
         <p>
-          Study in Germany's world-renowned technical universities with
+          Study in Germany&apos;s world-renowned technical universities with
           excellent research opportunities.
         </p>
         <p>Key benefits include:</p>
