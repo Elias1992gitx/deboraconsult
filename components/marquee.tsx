@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from '@/lib/utils'
 import Marquee from '@/components/ui/marquee'
 import Image from 'next/image'
@@ -96,24 +98,12 @@ const UniversityCard: React.FC<University> = ({
     >
       <figure
         className={cn(
-          'relative w-[200px] overflow-hidden rounded-xl p-5',
-          'bg-white/90 dark:bg-gray-800/95',
-          'backdrop-filter backdrop-blur-md',
+          'relative w-[200px] overflow-hidden rounded-xl p-5 bg-gray-200', // Light gray background
           'border border-white/20 dark:border-gray-700/30',
           'shadow-xl shadow-black/5 dark:shadow-black/30',
           'transition-all duration-300',
           'hover:shadow-2xl hover:-translate-y-1',
-          'hover:bg-white/95 dark:hover:bg-gray-800/90',
-          'before:absolute before:inset-0',
-          'before:bg-gradient-to-br',
-          'before:from-blue-50/50 before:via-white/50 before:to-purple-50/50',
-          'dark:before:from-gray-900/50 dark:before:via-gray-800/50 dark:before:to-blue-900/50',
-          'before:opacity-0 before:transition-opacity hover:before:opacity-100',
-          'after:absolute after:inset-0',
-          'after:bg-gradient-to-br after:from-white/10 after:to-blue-500/5',
-          'dark:after:from-blue-500/10 dark:after:to-purple-500/5',
-          'after:opacity-0 hover:after:opacity-100',
-          'after:transition-opacity',
+          'hover:bg-gray-300 dark:hover:bg-gray-800', // Updated hover background
           'mx-3',
           'cursor-pointer'
         )}

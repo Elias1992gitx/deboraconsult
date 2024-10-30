@@ -1,3 +1,19 @@
+"use client";
+
+import React from 'react';
+
+const ComponentName = () => {
+  return (
+    <div>
+      {/* Your component code here */}
+    </div>
+  );
+};
+
+export default ComponentName;
+
+
+
 // import { testimonials } from '@/constants/page-testimonials'
 // import { cn } from '@/lib/utils'
 // import Image from 'next/image'

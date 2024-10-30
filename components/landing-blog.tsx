@@ -8,43 +8,43 @@ import { useState } from 'react'
 const blogPosts = [
   {
     id: 1,
-    title: 'Beautiful Italy. Let\'s Travelling!',
+    title: 'Why Study in the USA? A Complete Guide',
     description:
-      'Italy in one of the most popular vacation destinations in the world, and it\'s no wonder.',
+      'Discover world-class education opportunities in the USA, from top universities to diverse campus experiences.',
     image:
-      'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=3286&auto=format&fit=crop',
-    category: 'Italy',
+      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=3000&auto=format&fit=crop',
+    category: 'USA',
   },
   {
     id: 2,
-    title: 'Romantic moments under Eiffel Tower',
+    title: 'UK Education System: What International Students Need to Know',
     description:
-      'Italy in one of the most popular vacation destinations in the world, and it\'s no wonder.',
+      'Understanding the British education system and why it remains a top choice for international students.',
     image:
-      'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=3387&auto=format&fit=crop',
-    category: 'France',
+      'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?q=80&w=3000&auto=format&fit=crop',
+    category: 'UK',
   },
   {
     id: 3,
-    title: 'Let\'s Have an Adventure Outside Canada',
+    title: 'Scholarship Opportunities for International Students',
     description:
-      'Canada in one of the most popular vacation destinations in the world, and it\'s no wonder.',
+      'Comprehensive guide to finding and securing scholarships for your study abroad journey.',
     image:
-      'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=3411&auto=format&fit=crop',
-    category: 'Canada',
+      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2940&auto=format&fit=crop',
+    category: 'Scholarships',
   },
   {
     id: 4,
-    title: 'New experience on desert island with your friends',
+    title: 'IELTS vs TOEFL: Which English Test Should You Take?',
     description:
-      'The Eiffel Tower is best background for a romantic paris honeymoom portrait',
+      'A detailed comparison of the two major English proficiency tests for international students.',
     image:
-      'https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=3368&auto=format&fit=crop',
-    category: 'Adventure',
+      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2940&auto=format&fit=crop',
+    category: 'Test Prep',
   },
 ]
 
-const categories = ['All', 'Cappadocia', 'Thailand', 'Turkey', 'Italy']
+const categories = ['All', 'USA', 'UK', 'Scholarships', 'Test Prep']
 
 export default function LandingBlog() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -59,10 +59,10 @@ export default function LandingBlog() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Our best blogs ?
+            Study Abroad Insights
           </h2>
           <p className="text-lg text-gray-600">
-            An insight to the incredible experiences in the world
+            Expert guidance and valuable information for your international education journey
           </p>
         </div>
 
