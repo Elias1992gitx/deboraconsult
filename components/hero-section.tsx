@@ -4,10 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import ChatBot from './chat-bot'
 
 export default function HeroSection() {
   // Add client-side only state
   const [isMounted, setIsMounted] = useState(false)
+  const [isChatOpen, setIsChatOpen] = useState(false)
 
   // Handle client-side mounting
   useEffect(() => {
@@ -19,6 +21,8 @@ export default function HeroSection() {
     return <div className="min-h-screen" /> // Placeholder with same height
   }
 
+  const toggleChat = () => setIsChatOpen(!isChatOpen)
+
   return (
     <section className="relative min-h-[100dvh] bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden pt-16 sm:pt-20 md:pt-24">
       {/* Decorative Elements */}
@@ -29,7 +33,7 @@ export default function HeroSection() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-4 lg:px-2 ">
           {/* Hero Content */}
           <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 min-h-[calc(100svh-4rem)] items-center py-8 sm:py-10 md:py-12">
             {/* Left Column */}
@@ -39,14 +43,14 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="space-y-6 sm:space-y-8"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 leading-tight pl-2 sm:pl-6 md:pl-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 leading-tight sm:pl-2 md:pl-2">
                 Your Journey to{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Global Education
                 </span>{' '}
                 Starts Here
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-blue-800/80 max-w-2xl pl-4 sm:pl-6 md:pl-8">
+              <p className="text-base sm:text-lg md:text-xl text-blue-800/80 max-w-2xl pl-2 sm:pl-2 md:pl-4">
                 Expert guidance for international education, test preparation,
                 and visa assistance. Transform your academic dreams into
                 reality.
@@ -156,6 +160,25 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <button
+        onClick={toggleChat}
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+          />
+        </svg>
+      </button>
+      <ChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </section>
   )
 }
