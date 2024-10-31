@@ -21,9 +21,9 @@ export default function HeroSection() {
   const toggleChat = () => setIsChatOpen(!isChatOpen)
 
   return (
-    <section className="relative min-h-[100dvh] bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-x-hidden pt-16 sm:pt-20 md:pt-24">
+    <section className="relative min-h-[100dvh] bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden pt-16 sm:pt-20 md:pt-24">
       {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-x-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-blue-200 rounded-full blur-3xl opacity-20" />
         <div className="absolute top-1/2 -left-40 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-200 rounded-full blur-3xl opacity-20" />
       </div>
