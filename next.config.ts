@@ -101,7 +101,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.boun.edu.tr',
       },
-      
+     
     ],
   },
 }

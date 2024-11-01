@@ -15,7 +15,7 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hello! I'm your AI assistant powered by Llama 2. How can I help you today?",
+      content: "Hello! I'm your AI assistant. How can I help you today?",
     },
   ])
   const [input, setInput] = useState('')
@@ -30,7 +30,6 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
     scrollToBottom()
   }, [messages])
 
-  // Add class to body when chat is open on mobile
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -52,22 +51,21 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/chat', {
+      const res = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: messages.concat(userMessage),
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input }),
       })
 
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error('Failed to get response')
       }
 
-      const data = await response.json()
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }])
+      const data = await res.json()
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: data.response },
+      ])
     } catch (error) {
       console.error('Chat Error:', error)
       setMessages((prev) => [
@@ -90,20 +88,16 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           className={cn(
-            // Base styles
             'fixed z-50 bg-white shadow-2xl overflow-hidden border border-gray-200',
-            // Mobile styles (full screen)
             'sm:bottom-24 bottom-0 right-0 w-full h-[100dvh]',
-            // Tablet and desktop styles
             'sm:w-[400px] sm:h-[480px] sm:right-4 sm:rounded-2xl'
           )}
         >
-          {/* Chat Header */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <h3 className="font-semibold">Deborah's AI Assistant</h3>
+                <h3 className="font-semibold">AI Assistant</h3>
               </div>
               <button
                 onClick={onClose}
@@ -127,7 +121,6 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
             </div>
           </div>
 
-          {/* Chat Messages */}
           <div className="h-[calc(100%-8rem)] overflow-y-auto p-4 space-y-4">
             {messages.map((message, index) => (
               <motion.div
@@ -156,7 +149,6 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Chat Input */}
           <form
             onSubmit={handleSubmit}
             className="absolute bottom-0 left-0 right-0 p-4 bg-white border-t"
