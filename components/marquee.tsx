@@ -4,6 +4,14 @@ import Marquee from '@/components/ui/marquee'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaLinkedinIn, 
+  FaYoutube,
+  FaPhone,
+  FaEnvelope 
+} from 'react-icons/fa'
 
 interface University {
   name: string
@@ -99,19 +107,19 @@ const UniversityCard: React.FC<University> = ({
       <figure
         className={cn(
           'relative w-[200px] overflow-hidden rounded-xl p-5 bg-gray-200', // Light gray background
-          'border border-white/20 dark:border-gray-700/30',
-          'shadow-xl shadow-black/5 dark:shadow-black/30',
+          'border  dark:border-gray-700/30',
+          ' dark:shadow-black/30',
           'transition-all duration-300',
           'hover:shadow-2xl hover:-translate-y-1',
-          'hover:bg-gray-300 dark:hover:bg-gray-800', // Updated hover background
+          ' dark:hover:bg-gray-800', // Updated hover background
           'mx-3',
           'cursor-pointer'
         )}
       >
         <div className="relative z-10 flex flex-col items-center gap-3">
           <div className="relative h-14 w-full transition-transform duration-300 group-hover:scale-110">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg" />
-            <div className="absolute inset-0 bg-white/50 dark:bg-gray-900/50 rounded-lg backdrop-blur-sm" />
+            <div className="absolute inset-0  rounded-lg" />
+            <div className="absolute" />
             <Image
               src={logo}
               alt={`${name} logo`}
@@ -151,7 +159,7 @@ export function MarqueeDemo() {
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto text-center mb-16 px-4">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Deborah Study Abroad Have Ties With Eminent Universities
+          Deborah's'sStudy Abroad Have Ties With Eminent Universities
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           As official partners of these universities, our overseas education

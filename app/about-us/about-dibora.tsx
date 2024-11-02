@@ -27,27 +27,32 @@ export default function AboutDibora() {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 className="inline-block text-blue-600 text-lg font-medium"
               >
-                Instant Communication Platform
+                Comprehensive Education Platform
               </motion.span>
-              
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
-                Empower
-                <br />
-                Connections with{' '}
+
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  VivaChat
+                  Deborah's{'  '}
+                </span>
+                <span className="text-2xl sm:text-3xl">Study Abroad</span>
+                <br />
+                <span className="text-3xl sm:text-5xl">
+                  Your Passport to Academic Success
                 </span>
               </h1>
-              
-              <p className="text-xl text-gray-600 max-w-xl leading-relaxed">
-                Instant, real-time communication, providing both
-                visual connection and immediate answers to customers inquiries.
+              <p className="text-md text-gray-600 max-w-xl leading-relaxed">
+                Deborah's Study Abroad has a long-standing reputation for
+                excellence, having guided thousands of students to prestigious
+                universities around the world. Our comprehensive services
+                include personalized counseling, test preparation, visa
+                assistance, and post-arrival support, making your educational
+                journey smooth and successful.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -78,7 +83,7 @@ export default function AboutDibora() {
                     />
                   </motion.svg>
                 </Link>
-                
+
                 <Link
                   href="/learn-more"
                   className="inline-flex items-center px-8 py-3.5 rounded-full bg-gray-100 text-gray-800 font-medium hover:bg-gray-200 transition-all duration-200"
@@ -105,9 +110,9 @@ export default function AboutDibora() {
             {/* Feature Icons */}
             <div className="flex gap-4">
               {[
-                { icon: '💬', label: 'Chat' },
-                { icon: '🎧', label: 'Support' },
-                { icon: '📱', label: 'Mobile' },
+                { icon: '🎓', label: 'Education' },
+                { icon: '🌍', label: 'Global' },
+                { icon: '📚', label: 'Learning' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -143,20 +148,22 @@ export default function AboutDibora() {
                   }}
                   className="flex flex-col gap-4"
                 >
-                  {[...leftImages, ...leftImages, ...leftImages].map((src, index) => (
-                    <div
-                      key={`left-${index}`}
-                      className="relative h-[280px] rounded-xl overflow-hidden"
-                    >
-                      <Image
-                        src={src}
-                        alt={`Study abroad ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
-                    </div>
-                  ))}
+                  {[...leftImages, ...leftImages, ...leftImages].map(
+                    (src, index) => (
+                      <div
+                        key={`left-${index}`}
+                        className="relative h-[280px] rounded-xl overflow-hidden"
+                      >
+                        <Image
+                          src={src}
+                          alt={`Study abroad ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+                      </div>
+                    )
+                  )}
                 </motion.div>
               </div>
             </div>
@@ -175,26 +182,28 @@ export default function AboutDibora() {
                   }}
                   className="flex flex-col gap-4"
                 >
-                  {[...rightImages, ...rightImages, ...rightImages].map((src, index) => (
-                    <div
-                      key={`right-${index}`}
-                      className="relative h-[280px] rounded-xl overflow-hidden"
-                    >
-                      <Image
-                        src={src}
-                        alt={`Study abroad ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
-                    </div>
-                  ))}
+                  {[...rightImages, ...rightImages, ...rightImages].map(
+                    (src, index) => (
+                      <div
+                        key={`right-${index}`}
+                        className="relative h-[280px] rounded-xl overflow-hidden"
+                      >
+                        <Image
+                          src={src}
+                          alt={`Study abroad ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+                      </div>
+                    )
+                  )}
                 </motion.div>
               </div>
             </div>
 
             {/* Overlay gradients */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
+            <div className="absolute inset-0 pointer-events-none" />
           </motion.div>
         </div>
 
@@ -205,14 +214,16 @@ export default function AboutDibora() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap gap-4 mt-16 justify-center"
         >
-          {['High-performance', 'Revolutionary', 'Progressive'].map((tag) => (
-            <span
-              key={tag}
-              className="px-6 py-2 rounded-full bg-gray-100 text-gray-800 text-sm font-medium"
-            >
-              {tag}
-            </span>
-          ))}
+          {['Academic Excellence', 'Global Recognition', 'Student Success'].map(
+            (tag) => (
+              <span
+                key={tag}
+                className="px-6 py-2 rounded-full bg-gray-100 text-gray-800 text-sm font-medium"
+              >
+                {tag}
+              </span>
+            )
+          )}
         </motion.div>
       </div>
     </section>

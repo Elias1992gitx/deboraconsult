@@ -3,46 +3,38 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const travelCards = [
+const educationCards = [
   {
-    title: 'Secrets of Europe:',
-    subtitle: 'Uncovering Hidden Delights',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=3432&auto=format&fit=crop',
-    description:
-      'Europe, with its rich history, stunning landscapes, and vibrant culture.',
+    title: 'Study in Europe:',
+    subtitle: 'Academic Excellence',
+    image: 'https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?q=80&w=2000',
+    description: 'Experience world-class education in prestigious European universities.',
   },
   {
-    title: 'Europe Uncovered:',
-    subtitle: 'The Top Hidden Gems to Explore',
-    image:
-      'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=3420&auto=format&fit=crop',
-    description:
-      'Discover the hidden treasures and unexplored destinations across Europe.',
+    title: 'Study in America:',
+    subtitle: 'Innovation & Research',
+    image: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2000',
+    description: 'Access cutting-edge research facilities and diverse academic programs.',
   },
   {
-    title: 'Hidden Gems of Europe:',
-    subtitle: 'Exploring Beyond the Tourist Trail',
-    image:
-      'https://images.unsplash.com/photo-1493707553966-283afac8c358?q=80&w=3540&auto=format&fit=crop',
-    description:
-      'Venture off the beaten path to discover authentic European experiences.',
+    title: 'Study in Asia:',
+    subtitle: 'Cultural Immersion',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000',
+    description: 'Combine academic excellence with rich cultural experiences.',
   },
   {
-    title: 'Hidden Charms:',
-    subtitle: "Exploring Europe's Lesser-Known Destinations",
-    image:
-      'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=3540&auto=format&fit=crop',
-    description:
-      "Uncover the charm of Europe's best-kept secrets and hidden locations.",
+    title: 'Study in Oceania:',
+    subtitle: 'Global Recognition',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2000',
+    description: 'World-renowned universities with innovative teaching methods.',
   },
 ]
 
-export default function TravelCards() {
+export default function EducationCards() {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {travelCards.map((card, index) => (
+        {educationCards.map((card, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}

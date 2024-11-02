@@ -28,7 +28,7 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Deborah Study Abroad Consultancy',
+  title: "Deborah's   Study Abroad Consultancy",
   description: 'Your gateway to global education opportunities',
 }
 

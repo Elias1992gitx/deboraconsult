@@ -2,12 +2,18 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const features = [
-  'Transfer',
-  'Accommodation',
-  'Food & Water',
-  'Guide',
-  'Tour',
-  'Photographer',
+  'Counseling',
+  'Application',
+  'Mentorship',
+  'Visa Support',
+  'Test Prep',
+  
+]
+
+const userAvatars = [
+  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+  'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop',
+  'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 ]
 
 export default function AboutEnd() {
@@ -37,14 +43,14 @@ export default function AboutEnd() {
               {/* User Stats */}
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3].map((i) => (
+                  {userAvatars.map((avatar, i) => (
                     <div
                       key={i}
                       className="w-10 h-10 rounded-full border-2 border-white overflow-hidden"
                     >
                       <Image
-                        src={`https://source.unsplash.com/random/100x100?portrait=${i}`}
-                        alt={`User ${i}`}
+                        src={avatar}
+                        alt={`User ${i + 1}`}
                         width={40}
                         height={40}
                         className="object-cover"
@@ -69,7 +75,8 @@ export default function AboutEnd() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.random() * 0.5 }}
-                      className="px-4 py-2 rounded-full bg-gray-100 text-gray-800 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      className="px-4 py-2 rounded-full bg-gray-100 text-gray-800 text-sm cursor-pointer hover:bg-gray-200 transition-colors"
                     >
                       {feature}
                     </motion.span>
@@ -84,20 +91,20 @@ export default function AboutEnd() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden"
+            className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
           >
             <Image
               src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2940"
               alt="Students studying abroad"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             
             {/* Overlay Controls */}
             <div className="absolute top-4 right-4 flex gap-2">
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white/100 transition-colors"
               >
                 <svg
                   className="w-5 h-5"
@@ -120,6 +127,9 @@ export default function AboutEnd() {
               <span className="text-yellow-500">★</span>
               <span className="text-sm font-medium">4.8</span>
             </div>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </motion.div>
         </div>
       </div>

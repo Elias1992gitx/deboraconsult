@@ -9,12 +9,12 @@ import OrganizationCards from './about-mission'
 export default function AboutUsPage() {
   return (
     <main className="min-h-screen flex flex-col">
-      <div className="max-w-full mt-24">
+      <div className="max-w-full mt-36">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative w-full h-[450px] md:h-[400px] overflow-hidden"
+          className="relative w-full h-[370px] md:h-[370px] overflow-hidden"
         >
           <div
             style={{
@@ -32,7 +32,7 @@ export default function AboutUsPage() {
                 top: 0,
                 height: '100%',
                 width: '300%',
-                animation: 'slideshow 10s linear infinite',
+                animation: 'slideshow 30s linear infinite',
               }}
             />
             <style jsx>{`
@@ -94,7 +94,7 @@ export default function AboutUsPage() {
                 transition={{ delay: 0.2 }}
                 className="space-y-4 relative p-8 rounded-3xl bg-white/20 backdrop-blur-sm border border-white/30"
               >
-                <span className="text-blue-600 uppercase tracking-wider text-sm font-medium inline-flex items-center gap-2">
+                <span className="text-blue-600 uppercase tracking-wider text-md font-medium inline-flex items-center gap-2">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -129,7 +129,7 @@ export default function AboutUsPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="col-span-7 relative rounded-3xl overflow-hidden h-[300px] group"
+                  className="col-span-6 relative rounded-3xl overflow-hidden h-[300px] group"
                 >
                   <Image
                     src="https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?q=80&w=2000"
@@ -153,7 +153,7 @@ export default function AboutUsPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="col-span-5 relative rounded-3xl overflow-hidden h-[300px] group"
+                  className="col-span-6 relative rounded-3xl overflow-hidden h-[300px] group"
                 >
                   <Image
                     src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2000"

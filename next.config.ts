@@ -110,6 +110,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.boun.edu.tr',
       },
+      {
+        protocol: 'https',
+        hostname: '1000logos.net',
+        pathname: '/**',
+      },
     ],
   },
 }
