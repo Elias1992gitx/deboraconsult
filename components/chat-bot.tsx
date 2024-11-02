@@ -15,7 +15,7 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hello! I'm your AI assistant. How can I help you today?",
+      content: "Hello! I'm Dibora, your study abroad assistant. I can help you with university applications, visa information, and education counseling. How may I assist you today?",
     },
   ])
   const [input, setInput] = useState('')
@@ -97,7 +97,7 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <h3 className="font-semibold">AI Assistant</h3>
+                <h3 className="font-semibold">Dibora - Study Abroad Assistant</h3>
               </div>
               <button
                 onClick={onClose}
@@ -158,7 +158,7 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask anything..."
+                placeholder="Ask about universities, visas, or programs..."
                 className="flex-1 p-2 sm:p-3 border rounded-xl text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                 disabled={isLoading}
               />

@@ -151,7 +151,7 @@ export function MarqueeDemo() {
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto text-center mb-16 px-4">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          ltancy Have Ties With Eminent Universities
+          Deborah Study Abroad Have Ties With Eminent Universities
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           As official partners of these universities, our overseas education

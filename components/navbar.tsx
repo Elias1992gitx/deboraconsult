@@ -64,6 +64,7 @@ export default function Navbar() {
     <Link
       href={href}
       className="relative text-gray-600 hover:text-[#30745c] group py-2"
+      prefetch={true}
     >
       <span className="relative z-10">{children}</span>
       <motion.span
@@ -157,7 +158,7 @@ const DropdownNavItem = ({
   const NavItems = () => (
     <>
       <NavLink href="/about-us">About Us</NavLink>
-      <NavLink href="/services">Services</NavLink>
+      {/* <NavLink href="/services">Services</NavLink> */}
       <DropdownNavItem
         trigger="Destination"
         items={[
