@@ -124,7 +124,7 @@ export default function HeroSection() {
                             overflow-hidden shadow-xl sm:shadow-2xl"
               >
                 <Image
-                  src="/images/img.jpg"
+                  src="https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg"
                   alt="Students collaborating"
                   fill
                   className="object-cover"

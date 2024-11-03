@@ -97,7 +97,7 @@ const ServiceCard = ({ service }: { service: any }) => {
       transition={{ duration: 0.5 }}
       className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
     >
-      <div className="relative h-72 sm:h-80 w-full overflow-hidden">
+      <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-white">
         <Image
           src={service.image}
           alt={service.title}

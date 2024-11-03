@@ -115,6 +115,10 @@ const nextConfig = {
         hostname: '1000logos.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com', // Add this new hostname
+      },
     ],
   },
 }
