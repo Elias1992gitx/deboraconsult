@@ -164,7 +164,8 @@ export default function Navbar() {
     <>
       <NavLink href="/about-us">About Us</NavLink>
       <NavLink href="/services">Services</NavLink>
-      <DropdownNavItem
+       <NavLink href="/destination">Destination</NavLink>
+      {/* <DropdownNavItem
         trigger="Destination"
         items={[
           'Study in UK',
@@ -179,8 +180,8 @@ export default function Navbar() {
           'Study in Germany',
           'Study in Netherlands',
         ]}
-      />
-      <DropdownNavItem trigger="Training" items={['IELTS', 'PTE', 'TOEFL']} />
+      /> */}
+      {/* <DropdownNavItem trigger="Training" items={['IELTS', 'PTE', 'TOEFL']} /> */}
       <NavLink href="/blog">Blog</NavLink>
       <NavLink href="/contact-us">Contact us</NavLink>
     </>
@@ -317,7 +318,7 @@ export default function Navbar() {
                     'transition-all duration-300'
                   )}
                 >
-                  COURSE FINDER
+                  Contact Us
                 </Button>
               </div>
             </div>

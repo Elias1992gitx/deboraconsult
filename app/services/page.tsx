@@ -7,7 +7,7 @@ import Bottom from './bottom'
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#f0e9e3]">
+    <main className="min-h-screen bg-white">
       <HeroSection />
       <MainServices />
       <Flow />
