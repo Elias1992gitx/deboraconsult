@@ -26,19 +26,51 @@ const backgroundImages = [
 
 export default function DestinationHero() {
   const [selectedTab, setSelectedTab] = useState('University')
-  const [filters, setFilters] = useState(['Europe'])
+  const [filters, setFilters] = useState<{
+    searchQuery: string;
+    duration: string;
+    location: string;
+    startDate: string;
+    category: string;
+    regions: string[];
+  }>({
+    searchQuery: '',
+    duration: '',
+    location: '',
+    startDate: '',
+    category: '',
+    regions: [],
+  })
   const [selectedCountry, setSelectedCountry] = useState('')
 
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(e.target.value)
   }
 
-  const toggleFilter = (filter: string) => {
-    setFilters(
-      filters.includes(filter)
-        ? filters.filter((f) => f !== filter)
-        : [...filters, filter]
-    )
+  const toggleRegionFilter = (region: string) => {
+    const currentRegions = filters.regions
+    setFilters({
+      ...filters,
+      regions: currentRegions.includes(region)
+        ? currentRegions.filter(r => r !== region)
+        : [...currentRegions, region]
+    })
+  }
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilters({ ...filters, searchQuery: e.target.value })
+  }
+
+  const handleDurationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilters({ ...filters, duration: e.target.value })
+  }
+
+  const handleLocationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilters({ ...filters, location: e.target.value })
+  }
+
+  const handleStartDateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilters({ ...filters, startDate: e.target.value })
   }
 
   return (
@@ -107,17 +139,23 @@ export default function DestinationHero() {
                 type="text"
                 placeholder="e.g., Business, Arts"
                 className="w-full p-3 rounded-lg bg-gray-50 border-none"
+                value={filters.searchQuery}
+                onChange={handleSearchChange}
               />
             </div>
             <div className="space-y-2">
               <label className="block text-sm text-gray-600">
                 Duration
               </label>
-              <select className="w-full p-3 rounded-lg bg-gray-50 border-none appearance-none">
-                <option>Select Duration</option>
-                <option>1 Semester</option>
-                <option>2 Semesters</option>
-                <option>Full Year</option>
+              <select 
+                className="w-full p-3 rounded-lg bg-gray-50 border-none appearance-none"
+                value={filters.duration}
+                onChange={handleDurationChange}
+              >
+                <option value="">Select Duration</option>
+                <option value="1 Semester">1 Semester</option>
+                <option value="2 Semesters">2 Semesters</option>
+                <option value="Full Year">Full Year</option>
               </select>
             </div>
             <div className="space-y-2">
@@ -151,21 +189,24 @@ export default function DestinationHero() {
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600">Filter:</span>
               <div className="flex gap-2">
-                {['Europe', 'North America', 'Asia', 'Africa', 'South America', 'Popular'].map((filter) => (
+                {['Europe', 'North America', 'Asia', 'Africa', 'South America'].map((region) => (
                   <button
-                    key={filter}
-                    onClick={() => toggleFilter(filter)}
+                    key={region}
+                    onClick={() => toggleRegionFilter(region)}
                     className={`px-4 py-2 rounded-full text-sm transition-all ${
-                      filters.includes(filter)
+                      filters.regions.includes(region)
                         ? 'bg-gray-900 text-white'
                         : 'border border-gray-200 text-gray-600'
                     }`}
                   >
-                    {filter}
+                    {region}
                   </button>
                 ))}
               </div>
-              <button className="text-sm text-gray-500 hover:text-gray-700">
+              <button 
+                onClick={() => setFilters({ ...filters, regions: [] })}
+                className="text-sm text-gray-500 hover:text-gray-700"
+              >
                 Clear Filter
               </button>
             </div>
