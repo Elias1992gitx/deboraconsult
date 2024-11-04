@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { FilterProvider } from './FilterContext'
 import DestinationGrid from './countries'
 import DestinationHero from './hero'
+import VibrantContact from './vibrant'
+// import WorldState from './worldstate'
 
 export default function DestinationPage() {
   return (
@@ -15,6 +17,8 @@ export default function DestinationPage() {
       >
         <DestinationHero />
         <DestinationGrid />
+        {/* <WorldState /> */}
+        <VibrantContact />
       </motion.div>
     </FilterProvider>
   )

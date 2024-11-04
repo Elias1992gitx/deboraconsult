@@ -1,39 +1,44 @@
 'use client'
 
 import { createContext, useContext, useState, ReactNode } from 'react'
-import { FilterState } from './types'
+
+interface FilterState {
+  continent: string
+  country: string
+}
 
 const initialState: FilterState = {
-  programType: '',
-  duration: '',
-  location: '',
-  startDate: '',
-  category: '',
-  regions: [],
-  searchQuery: ''
+  continent: '',
+  country: ''
 }
 
 export const FilterContext = createContext<{
   filters: FilterState
-  setFilters: (filters: Partial<FilterState>) => void
+  setContinent: (continent: string) => void
+  setCountry: (country: string) => void
   clearFilters: () => void
 }>({
   filters: initialState,
-  setFilters: () => {},
+  setContinent: () => {},
+  setCountry: () => {},
   clearFilters: () => {}
 })
 
 export function FilterProvider({ children }: { children: ReactNode }) {
   const [filters, setFilters] = useState<FilterState>(initialState)
 
-  const updateFilters = (newFilters: Partial<FilterState>) => {
-    setFilters(prev => ({ ...prev, ...newFilters }))
+  const setContinent = (continent: string) => {
+    setFilters(prev => ({ ...prev, continent, country: '' }))
+  }
+
+  const setCountry = (country: string) => {
+    setFilters(prev => ({ ...prev, country }))
   }
 
   const clearFilters = () => setFilters(initialState)
 
   return (
-    <FilterContext.Provider value={{ filters, setFilters: updateFilters, clearFilters }}>
+    <FilterContext.Provider value={{ filters, setContinent, setCountry, clearFilters }}>
       {children}
     </FilterContext.Provider>
   )

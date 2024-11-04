@@ -7,161 +7,573 @@ import { useFilters } from './FilterContext'
 import { StudyCard } from './types'
 
 const allStudyCards: StudyCard[] = [
+  // Canadian Universities
   {
-    title: 'Business Studies at Oxford',
-    dates: 'September 2024 - June 2025',
-    location: 'United Kingdom',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-    category: 'Business & Economics',
-    programType: 'University',
-    duration: '2 Semesters',
-    startDate: 'September 2024',
-    region: 'Europe'
-  },
-  {
-    title: 'Computer Science at MIT',
-    dates: 'August 2024 - May 2025',
-    location: 'United States',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585',
-    category: 'Technology & Engineering',
-    programType: 'University',
-    duration: '2 Semesters',
-    startDate: 'August 2024',
-    region: 'North America'
-  },
-  {
-    title: 'Language Studies in Paris',
-    dates: 'October 2024 - March 2025',
-    location: 'France',
-    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34',
-    category: 'Arts & Humanities',
-    programType: 'Language School',
-    duration: '1 Semester',
-    startDate: 'October 2024',
-    region: 'Europe'
-  },
-  {
-    title: 'Engineering at TU Munich',
-    dates: 'October 2024 - July 2025',
-    location: 'Germany',
-    image: 'https://images.unsplash.com/photo-1597733336794-12d05021d510',
-    category: 'Technology & Engineering',
-    programType: 'University',
-    duration: 'Full Year',
-    startDate: 'October 2024',
-    region: 'Europe'
-  },
-  {
-    title: 'Medicine at University of Toronto',
-    dates: 'September 2024 - April 2025',
+    title: 'University of Toronto',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
     location: 'Canada',
-    image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831',
-    category: 'Medical Sciences',
-    programType: 'University',
-    duration: '2 Semesters',
-    startDate: 'September 2024',
-    region: 'North America'
-  },
-  {
-    title: 'Korean Language Program',
-    dates: 'March 2025 - July 2025',
-    location: 'South Korea',
-    image: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451',
-    category: 'Language & Culture',
-    programType: 'Language School',
-    duration: '1 Semester',
-    startDate: 'March 2025',
-    region: 'Asia'
-  },
-  {
-    title: 'Economics at LSE',
-    dates: 'September 2024 - June 2025',
-    location: 'United Kingdom',
-    image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5',
-    category: 'Business & Economics',
-    programType: 'University',
-    duration: '2 Semesters',
-    startDate: 'September 2024',
-    region: 'Europe'
-  },
-  {
-    title: 'Environmental Science in Melbourne',
-    dates: 'February 2025 - November 2025',
-    location: 'Australia',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
-    category: 'Environmental Studies',
-    programType: 'University',
-    duration: 'Full Year',
-    startDate: 'February 2025',
-    region: 'Asia'
-  },
-  {
-    title: 'Art & Design in Florence',
-    dates: 'September 2024 - January 2025',
-    location: 'Italy',
-    image: 'https://images.unsplash.com/photo-1534445967719-8ae7b972b1a5',
-    category: 'Arts & Humanities',
-    programType: 'Exchange',
-    duration: '1 Semester',
-    startDate: 'September 2024',
-    region: 'Europe'
-  },
-  {
-    title: 'Psychology at University of Cape Town',
-    dates: 'January 2025 - November 2025',
-    location: 'South Africa',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'UofT',
     image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
-    category: 'Social Sciences',
-    programType: 'University',
-    duration: 'Full Year',
-    startDate: 'January 2025',
-    region: 'Africa'
-  },
-  {
-    title: 'Data Science at ETH Zurich',
-    dates: 'September 2024 - June 2025',
-    location: 'Switzerland',
-    image: 'https://images.unsplash.com/photo-1558402529-d2638a7023e9',
-    category: 'Technology & Engineering',
+    category: 'Medicine & Life Sciences',
     programType: 'University',
     duration: '2 Semesters',
     startDate: 'September 2024',
-    region: 'Europe'
+    region: 'North America',
+    description:
+      "Canada's leading research university, renowned for innovation in medicine, technology, and humanities. Features world-class facilities and diverse research opportunities.",
   },
   {
-    title: 'Japanese Studies in Tokyo',
-    dates: 'April 2025 - July 2025',
-    location: 'Japan',
-    image: 'https://images.unsplash.com/photo-1480796927426-f609979314bd',
-    category: 'Language & Culture',
-    programType: 'Language School',
-    duration: '1 Semester',
-    startDate: 'April 2025',
-    region: 'Asia'
-  },
-  {
-    title: 'Marine Biology in Great Barrier Reef',
-    dates: 'February 2025 - June 2025',
-    location: 'Australia',
-    image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0',
-    category: 'Environmental Studies',
-    programType: 'University',
-    duration: '1 Semester',
-    startDate: 'February 2025',
-    region: 'Asia'
-  },
-  {
-    title: 'International Relations in Geneva',
-    dates: 'September 2024 - June 2025',
-    location: 'Switzerland',
-    image: 'https://images.unsplash.com/photo-1589519160732-57fc498494f8',
-    category: 'Social Sciences',
+    title: 'McGill University',
+    dates: 'Flexible Entry | Year-Round Programs',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'McGill',
+    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54',
+    category: 'Medical Research & Engineering',
     programType: 'University',
     duration: '2 Semesters',
     startDate: 'September 2024',
-    region: 'Europe'
-  }
+    region: 'North America',
+    description:
+      'Historic institution in Montreal known for excellence in medicine, law, and engineering. Offers a unique blend of English and French cultural experiences.',
+  },
+  {
+    title: 'University of British Columbia',
+    dates: 'Multiple Intakes | Customizable Duration',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'UBC',
+    image: 'https://images.unsplash.com/photo-1544006659-f0b21884ce1d',
+    category: 'Environmental Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      "Leading research institution on Canada's west coast, excelling in sustainability, life sciences, and technology. Beautiful campus with ocean and mountain views.",
+  },
+  {
+    title: 'University of Waterloo',
+    dates: 'Co-op Terms Available | Seasonal Flexibility',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'Waterloo',
+    image: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',
+    category: 'Computer Science & Mathematics',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Leader in computer science, engineering, and cooperative education. Strong connections with tech industry and innovation ecosystem.',
+  },
+  {
+    title: 'McMaster University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'McMaster',
+    image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Renowned for innovative medical education and research. Strong programs in engineering, business, and social sciences.',
+  },
+  {
+    title: 'University of Montreal',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'UdeM',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Leading French-language university in North America. Excellence in life sciences, arts, and social sciences with rich cultural environment.',
+  },
+  {
+    title: "Queen's University",
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: "Queen's",
+    image: 'https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Historic institution known for exceptional student experience. Strong programs in business, engineering, and health sciences.',
+  },
+  {
+    title: 'Western University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'Western',
+    image: 'https://images.unsplash.com/photo-1595113316349-9fa4eb24f884',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Comprehensive research university with strong medical and business schools. Beautiful campus with excellent student facilities.',
+  },
+  {
+    title: 'University of Calgary',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Canada',
+    country: 'Canada',
+    continent: 'North America',
+    universityName: 'UCalgary',
+    image: 'https://images.unsplash.com/photo-1576495199011-eb94736d05d6',
+    category: 'Environmental Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Leading research institution in Western Canada. Known for energy research, engineering, and environmental studies.',
+  },
+  // US Universities
+  {
+    title: 'Massachusetts Institute of Technology (MIT)',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'MIT',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'A world-leading institution renowned for excellence in science, engineering, and technology. Notable departments include Computer Science, Engineering, Physics, and Economics. Features cutting-edge research facilities and innovation hubs.',
+  },
+  {
+    title: 'Harvard University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Harvard University',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      "America's oldest institution of higher learning, excelling in Law, Business, Medicine, and Arts & Sciences. Home to world-renowned research centers and extensive academic resources.",
+  },
+  {
+    title: 'Stanford University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Stanford University',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585',
+    category: 'Environmental Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'A leading research university in Silicon Valley, known for excellence in Computer Science, Engineering, Business, and Medicine. Strong industry connections and entrepreneurial ecosystem.',
+  },
+  {
+    title: 'California Institute of Technology (Caltech)',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Caltech',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      "A world-renowned science and engineering institute, featuring exceptional programs in Physics, Chemistry, Engineering, and Planetary Sciences. Home to NASA's Jet Propulsion Laboratory.",
+  },
+  {
+    title: 'Yale University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Yale',
+    image: 'https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'An Ivy League institution known for excellence in Law, Drama, and Medicine. Features historic architecture and world-class research facilities across multiple disciplines.',
+  },
+  {
+    title: 'Princeton University',
+    dates: 'Fall & Spring Semesters | Research Programs',
+    location: 'USA',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Princeton',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Liberal Arts & Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Ivy League institution renowned for research excellence and liberal arts education.',
+  },
+  {
+    title: 'University of Chicago',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'UChicago',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Renowned for pioneering research in Economics, Physics, and Social Sciences. Features distinctive Gothic architecture and a tradition of rigorous academic inquiry.',
+  },
+  {
+    title: 'Columbia University',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United States',
+    country: 'United States',
+    continent: 'North America',
+    universityName: 'Columbia',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'North America',
+    description:
+      'Located in New York City, Columbia excels in Journalism, Business, and Arts. Benefits from deep connections to global industries and cultural institutions.',
+  },
+  // UK Universities
+  {
+    title: 'University of Oxford',
+    dates: 'Michaelmas, Hilary & Trinity Terms Available',
+    location: 'United Kingdom',
+    country: 'United Kingdom',
+    continent: 'Europe',
+    universityName: 'Oxford',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'The oldest university in the English-speaking world...',
+  },
+  {
+    title: 'University of Cambridge',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'United Kingdom',
+    country: 'United Kingdom',
+    continent: 'Europe',
+    universityName: 'Cambridge',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'A world-renowned university known for excellence...',
+  },
+  {
+    title: 'Imperial College London',
+    dates: 'Term-Based Structure | Research Placements',
+    location: 'United Kingdom',
+    country: 'United Kingdom',
+    continent: 'Europe',
+    universityName: 'Imperial',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Environmental Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'A world-leading science-focused institution...',
+  },
+  // Continue with more UK universities...
+
+  // German Universities
+  {
+    title: 'Technical University of Munich',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Germany',
+    country: 'Germany',
+    continent: 'Europe',
+    universityName: 'TUM',
+    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27',
+    category: 'Medical Research & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Leading technical university in Germany...',
+  },
+  // Continue with more German universities...
+
+  // South Korean Universities
+  {
+    title: 'Seoul National University',
+    dates: 'Spring & Fall Sessions | Research Intensive',
+    location: 'South Korea',
+    country: 'South Korea',
+    continent: 'Asia',
+    universityName: 'SNU',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description: 'The most prestigious university in South Korea...',
+  },
+  // Continue with more universities...
+
+  // Add after the existing universities
+  {
+    title: 'ETH Zurich',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Switzerland',
+    country: 'Switzerland',
+    continent: 'Europe',
+    universityName: 'ETH',
+    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d',
+    category: 'Engineering & Technology',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description:
+      "Switzerland's leading institution for technology and natural sciences, known for breakthrough research in quantum engineering and sustainable technology.",
+  },
+  {
+    title: 'Delft University of Technology',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Netherlands',
+    country: 'Netherlands',
+    continent: 'Europe',
+    universityName: 'TU Delft',
+    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27',
+    category: 'Civil Engineering & Architecture',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description:
+      'Leading in water management, sustainable energy, and architectural innovation. Strong focus on practical engineering solutions.',
+  },
+  {
+    title: 'KU Leuven',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Belgium',
+    country: 'Belgium',
+    continent: 'Europe',
+    universityName: 'KU Leuven',
+    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd',
+    category: 'Biomedical Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description:
+      'Excellence in biotechnology and life sciences research. Historic institution with modern research facilities.',
+  },
+  {
+    title: 'Sciences Po Paris',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'France',
+    country: 'France',
+    continent: 'Europe',
+    universityName: 'Sciences Po',
+    image: 'https://images.unsplash.com/photo-1560523159-6b681a1e1852',
+    category: 'Political Sciences & International Relations',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description:
+      'Premier institution for political science and international affairs. Strong focus on global governance and public policy.',
+  },
+  {
+    title: 'Technical University of Denmark',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Denmark',
+    country: 'Denmark',
+    continent: 'Europe',
+    universityName: 'DTU',
+    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27',
+    category: 'Sustainable Engineering & Green Tech',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description:
+      'Leading in sustainable technologies and renewable energy research. Strong industry partnerships and innovation focus.',
+  },
+  // Qatar Universities
+  {
+    title: 'Qatar University',
+    dates: 'Rolling Admissions | Semester-Based Programs',
+    location: 'Qatar',
+    country: 'Qatar',
+    continent: 'Asia',
+    universityName: 'QU',
+    image: 'https://images.unsplash.com/photo-1557425955-df376b5903c8',
+    category: 'Engineering & Petroleum Studies',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description:
+      'Leading institution in Qatar focusing on engineering, petroleum studies, and Islamic studies. State-of-the-art facilities and research centers.',
+  },
+  {
+    title: 'Hamad Bin Khalifa University',
+    dates: 'Year-Round Enrollment | Research Opportunities',
+    location: 'Qatar',
+    country: 'Qatar',
+    continent: 'Asia',
+    universityName: 'HBKU',
+    image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4',
+    category: 'Innovation & Technology',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description:
+      'Research-focused university specializing in sustainable development, artificial intelligence, and Islamic finance.',
+  },
+  {
+    title: 'Carnegie Mellon University Qatar',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Qatar',
+    country: 'Qatar',
+    continent: 'Asia',
+    universityName: 'CMU-Q',
+    image: 'https://images.unsplash.com/photo-1583373834259-46cc92173cb7',
+    category: 'Computer Science & Business',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description:
+      'Leading programs in computer science, business administration, and information systems with strong industry connections.',
+  },
+  // Continue with more Qatar universities...
+
+  // Additional South Korean Universities
+  {
+    title: 'Korea Advanced Institute of Science and Technology',
+    dates: 'Spring & Fall Sessions | Research Intensive',
+    location: 'South Korea',
+    country: 'South Korea',
+    continent: 'Asia',
+    universityName: 'KAIST',
+    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27',
+    category: 'Technology & Innovation',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description:
+      'Premier science and technology university known for robotics, AI, and engineering innovation.',
+  },
+  {
+    title: 'Yonsei University',
+    dates: 'Semester Exchange | Cultural Immersion Programs',
+    location: 'South Korea',
+    country: 'South Korea',
+    continent: 'Asia',
+    universityName: 'Yonsei',
+    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d',
+    category: 'Business & International Studies',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Asia',
+    description:
+      'Leading private university excelling in business, international studies, and Korean language education.',
+  },
 ]
+
+const countryData = {
+  'Study in UK': { code: 'GB', name: 'UK' },
+  'Study in USA': { code: 'US', name: 'USA' },
+  'Study in Canada': { code: 'CA', name: 'Canada' },
+  'Study in Croatia': { code: 'HR', name: 'Croatia' },
+  'Study in South Korea': { code: 'KR', name: 'South Korea' },
+  'Study in South Africa': { code: 'ZA', name: 'South Africa' },
+  'Study in Qatar': { code: 'QA', name: 'Qatar' },
+  'Study in Spain': { code: 'ES', name: 'Spain' },
+  'Study in Argentina': { code: 'AR', name: 'Argentina' },
+  'Study in Germany': { code: 'DE', name: 'Germany' },
+  'Study in Netherlands': { code: 'NL', name: 'Netherlands' },
+  'Study in Switzerland': { code: 'CH', name: 'Switzerland' },
+  'Study in Belgium': { code: 'BE', name: 'Belgium' },
+  'Study in France': { code: 'FR', name: 'France' },
+  'Study in Denmark': { code: 'DK', name: 'Denmark' }
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  })
+}
+
+const countryMapping = {
+  'USA': 'United States',
+  'UK': 'United Kingdom',
+  'Canada': 'Canada',
+  'Switzerland': 'Switzerland',
+  'Belgium': 'Belgium',
+  'France': 'France',
+  'Denmark': 'Denmark',
+  'Qatar': 'Qatar',
+  'South Korea': 'South Korea'
+}
 
 export default function DestinationGrid() {
   const { filters } = useFilters()
@@ -185,31 +597,14 @@ export default function DestinationGrid() {
   }
 
   const filteredCards = allStudyCards.filter(card => {
-    const matchesSearch = !filters.searchQuery || 
-      card.title.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
-      card.category.toLowerCase().includes(filters.searchQuery.toLowerCase())
+    const matchesContinent = !filters.continent || filters.continent === 'All' || 
+      card.continent === filters.continent
     
-    const matchesProgramType = !filters.programType || 
-      card.programType === filters.programType
+    const matchesCountry = !filters.country || filters.country === 'All' || 
+      card.country === countryMapping[filters.country as keyof typeof countryMapping] || 
+      card.country === filters.country
     
-    const matchesDuration = !filters.duration || 
-      card.duration === filters.duration
-    
-    const matchesLocation = !filters.location || 
-      card.location === filters.location
-    
-    const matchesStartDate = !filters.startDate || 
-      card.startDate === filters.startDate
-    
-    const matchesRegions = filters.regions.length === 0 || 
-      filters.regions.includes(card.region)
-
-    return matchesSearch && 
-      matchesProgramType && 
-      matchesDuration && 
-      matchesLocation && 
-      matchesStartDate && 
-      matchesRegions
+    return matchesContinent && matchesCountry
   })
 
   const indexOfLastCard = currentPage * cardsPerPage
@@ -231,11 +626,13 @@ export default function DestinationGrid() {
           <div className="flex justify-between items-center mb-8">
             <div>
               <h2 className="text-4xl font-normal mb-4">
-                20 Unforgettable Travel Discoveries
+                Global Academic Excellence
               </h2>
               <p className="text-gray-600 max-w-2xl">
-                Explore our carefully selected study abroad programs at prestigious universities worldwide. 
-                Each program offers unique opportunities for academic excellence and cultural immersion.
+                Join a global community of scholars and
+                innovators shaping tomorrow's breakthroughs.From cutting-edge research labs to historic
+                lecture halls, discover programs that blend academic rigor with
+                cultural exploration. 
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -258,10 +655,15 @@ export default function DestinationGrid() {
             {currentCards.map((card, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.2 },
+                }}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="relative h-48">
                   <Image
@@ -291,38 +693,40 @@ export default function DestinationGrid() {
           </motion.div>
 
           <div className="flex justify-center items-center gap-2 mt-12">
-            <button 
+            <button
               onClick={handlePrevPage}
               className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center ${
-                currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'
+                currentPage === 1
+                  ? 'text-gray-300 cursor-not-allowed'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
               disabled={currentPage === 1}
             >
-              <span className="sr-only">Previous</span>
-              ←
+              <span className="sr-only">Previous</span>←
             </button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
                 className={`w-8 h-8 rounded-full ${
-                  page === currentPage 
-                    ? 'bg-gray-900 text-white' 
+                  page === currentPage
+                    ? 'bg-gray-900 text-white'
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 {page}
               </button>
             ))}
-            <button 
+            <button
               onClick={handleNextPage}
               className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center ${
-                currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'
+                currentPage === totalPages
+                  ? 'text-gray-300 cursor-not-allowed'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
               disabled={currentPage === totalPages}
             >
-              <span className="sr-only">Next</span>
-              →
+              <span className="sr-only">Next</span>→
             </button>
           </div>
         </motion.div>

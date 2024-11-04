@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { useFilters } from './FilterContext'
+import ReactCountryFlag from 'react-country-flag'
 
 const countryData = {
-  'Study in UK': { code: 'GB', name: 'United Kingdom' },
-  'Study in USA': { code: 'US', name: 'United States' },
+  'Study in UK': { code: 'GB', name: 'UK' },
+  'Study in USA': { code: 'US', name: 'USA' },
   'Study in Canada': { code: 'CA', name: 'Canada' },
   'Study in Croatia': { code: 'HR', name: 'Croatia' },
   'Study in South Korea': { code: 'KR', name: 'South Korea' },
@@ -24,53 +26,142 @@ const backgroundImages = [
   'https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd', // Global education concept
 ]
 
+const AnimatedSelect = ({ 
+  value, 
+  onChange, 
+  options, 
+  placeholder, 
+  disabled = false 
+}: {
+  value: string
+  onChange: (value: string) => void
+  options: string[]
+  placeholder: string
+  disabled?: boolean
+}) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="relative">
+      <motion.button
+        whileTap={{ scale: 0.995 }}
+        onClick={() => !disabled && setIsOpen(!isOpen)}
+        className={`w-full p-3 rounded-lg bg-gray-50 flex justify-between items-center ${
+          disabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-100'
+        }`}
+      >
+        <span className={value ? 'text-gray-900' : 'text-gray-500'}>
+          {value || placeholder}
+        </span>
+        <motion.svg
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          className="w-5 h-5 text-gray-500"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </motion.svg>
+      </motion.button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-50 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden"
+          >
+            {options.map((option) => (
+              <motion.button
+                key={option}
+                whileHover={{ backgroundColor: '#f3f4f6' }}
+                onClick={() => {
+                  onChange(option)
+                  setIsOpen(false)
+                }}
+                className={`w-full px-4 py-2 text-left ${
+                  value === option ? 'bg-gray-50 text-gray-900' : 'text-gray-600'
+                }`}
+              >
+                {option}
+              </motion.button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+type CountryInfo = {
+  code: string
+  name: string
+  count?: number // Number of universities available
+}
+
+const CountryList = ({ countries }: { countries: [string, CountryInfo][] }) => {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {countries.map(([key, country]) => (
+        <div
+          key={country.code}
+          className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-50 rounded-full px-3 py-1"
+        >
+          <ReactCountryFlag
+            countryCode={country.code}
+            svg
+            style={{
+              width: '1em',
+              height: '1em',
+            }}
+          />
+          <span>{country.name}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function DestinationHero() {
-  const [selectedTab, setSelectedTab] = useState('University')
-  const [filters, setFilters] = useState<{
-    searchQuery: string;
-    duration: string;
-    location: string;
-    startDate: string;
-    category: string;
-    regions: string[];
-  }>({
-    searchQuery: '',
-    duration: '',
-    location: '',
-    startDate: '',
-    category: '',
-    regions: [],
-  })
+  const { filters, setContinent, setCountry, clearFilters } = useFilters()
+  const [selectedContinent, setSelectedContinent] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
 
-  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(e.target.value)
+  const handleContinentChange = (value: string) => {
+    setSelectedContinent(value)
+    setContinent(value)
+    setSelectedCountry('') // Reset local state
   }
 
-  const toggleRegionFilter = (region: string) => {
-    const currentRegions = filters.regions
-    setFilters({
-      ...filters,
-      regions: currentRegions.includes(region)
-        ? currentRegions.filter(r => r !== region)
-        : [...currentRegions, region]
-    })
+  const handleCountryChange = (value: string) => {
+    setSelectedCountry(value)
+    setCountry(value)
   }
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilters({ ...filters, searchQuery: e.target.value })
-  }
-
-  const handleDurationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, duration: e.target.value })
-  }
-
-  const handleLocationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, location: e.target.value })
-  }
-
-  const handleStartDateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, startDate: e.target.value })
+  const getCountriesForContinent = (continent: string) => {
+    switch (continent) {
+      case 'Asia':
+        return Object.entries(countryData).filter(([key]) => 
+          ['Study in Qatar', 'Study in South Korea'].includes(key)
+        )
+      case 'North America':
+        return Object.entries(countryData).filter(([key]) => 
+          ['Study in USA', 'Study in Canada'].includes(key)
+        )
+      case 'Europe':
+        return Object.entries(countryData).filter(([key]) => 
+          ['Study in UK', 'Study in Germany', 'Study in Spain', 'Study in Netherlands', 'Study in Croatia'].includes(key)
+        )
+      case 'All':
+        return Object.entries(countryData)
+      default:
+        return [] // Return empty array instead of false
+    }
   }
 
   return (
@@ -99,9 +190,10 @@ export default function DestinationHero() {
             Study Adventure
           </h1>
           <p className="text-xl opacity-90 max-w-2xl">
-            Explore curated study abroad opportunities that fulfill your academic dreams,
-            offering unforgettable moments of learning, cultural immersion, and personal
-            growth at prestigious universities worldwide.
+            Explore curated study abroad opportunities that fulfill your
+            academic dreams, offering unforgettable moments of learning,
+            cultural immersion, and personal growth at prestigious universities
+            worldwide.
           </p>
         </motion.div>
 
@@ -111,130 +203,72 @@ export default function DestinationHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-12 bg-white rounded-3xl p-8 shadow-lg"
         >
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-light">Find your ideal program & University</h2>
-            <div className="flex gap-2">
-              {['University', 'Language School', 'Exchange'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setSelectedTab(tab)}
-                  className={`px-6 py-2 rounded-full transition-all text-sm ${
-                    selectedTab === tab
-                      ? 'bg-gray-900 text-white'
-                      : 'bg-gray-100 text-gray-600'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
+          <h2 className="text-3xl font-light mb-8">
+            Explore Best Universities
+          </h2>
 
-          <div className="grid grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <div className="space-y-2">
               <label className="block text-sm text-gray-600">
-                Program Type
+                Select Continent
               </label>
-              <input
-                type="text"
-                placeholder="e.g., Business, Arts"
-                className="w-full p-3 rounded-lg bg-gray-50 border-none"
-                value={filters.searchQuery}
-                onChange={handleSearchChange}
+              <AnimatedSelect
+                value={selectedContinent}
+                onChange={(value) => handleContinentChange(value)}
+                options={['All', 'Europe', 'North America', 'Asia', 'Africa', 'South America']}
+                placeholder="Choose a Continent"
               />
             </div>
+
             <div className="space-y-2">
               <label className="block text-sm text-gray-600">
-                Duration
+                Select Country
               </label>
-              <select 
-                className="w-full p-3 rounded-lg bg-gray-50 border-none appearance-none"
-                value={filters.duration}
-                onChange={handleDurationChange}
-              >
-                <option value="">Select Duration</option>
-                <option value="1 Semester">1 Semester</option>
-                <option value="2 Semesters">2 Semesters</option>
-                <option value="Full Year">Full Year</option>
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="block text-sm text-gray-600">
-                Location
-              </label>
-              <select 
-                className="w-full p-3 rounded-lg bg-gray-50 border-none appearance-none"
+              <AnimatedSelect
                 value={selectedCountry}
-                onChange={handleCountryChange}
-              >
-                <option value="">All Countries</option>
-                {Object.entries(countryData).map(([studyIn, { code, name }]) => (
-                  <option key={code} value={code}>
-                    {studyIn}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="block text-sm text-gray-600">
-                Start Date
-              </label>
-              <select className="w-full p-3 rounded-lg bg-gray-50 border-none appearance-none">
-                <option>Any Semester</option>
-              </select>
+                onChange={(value) => handleCountryChange(value)}
+                options={selectedContinent 
+                  ? getCountriesForContinent(selectedContinent).map(([key, { name }]) => name)
+                  : []}
+                placeholder="Choose a Country"
+                disabled={!selectedContinent}
+              />
             </div>
           </div>
 
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-600">Filter:</span>
-              <div className="flex gap-2">
-                {['Europe', 'North America', 'Asia', 'Africa', 'South America'].map((region) => (
-                  <button
-                    key={region}
-                    onClick={() => toggleRegionFilter(region)}
-                    className={`px-4 py-2 rounded-full text-sm transition-all ${
-                      filters.regions.includes(region)
-                        ? 'bg-gray-900 text-white'
-                        : 'border border-gray-200 text-gray-600'
-                    }`}
-                  >
-                    {region}
-                  </button>
-                ))}
-              </div>
-              <button 
-                onClick={() => setFilters({ ...filters, regions: [] })}
-                className="text-sm text-gray-500 hover:text-gray-700"
+          <div className="flex flex-col gap-4">
+            <CountryList countries={Object.entries(countryData)} />
+            <div className="flex justify-between items-center ">
+              <button
+                onClick={clearFilters}
+                className="text-sm text-gray-500 hover:text-gray-700 "
               >
-                Clear Filter
+                Clear Selection
               </button>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-gray-900 text-white px-8 py-3 rounded-lg flex items-center gap-2"
-            >
-              Search Programs
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-gray-700 text-white px-8 py-3 rounded-lg flex items-center gap-2"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </motion.button>
+                View Universities
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
-      
     </main>
-   
   )
 }
