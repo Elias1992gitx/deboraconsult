@@ -56,18 +56,18 @@ const WaveBackground = () => (
 
 export default function VibrantContact() {
   return (
-    <section className="relative min-h-[400px] bg-gradient-to-br from-green-600 to-green-400 overflow-hidden rounded-3xl mx-4 my-20">
+    <section className="relative min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-green-600 to-green-400 overflow-hidden rounded-2xl sm:rounded-3xl mx-2 sm:mx-4 my-12 sm:my-20">
       <WaveBackground />
 
-      <div className="relative z-10 container mx-auto px-8 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl"
+          className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
         >
           <motion.h2
-            className="text-5xl sm:text-6xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,56 +85,44 @@ export default function VibrantContact() {
             We're happy to help you.
           </motion.p>
 
-          <div className="flex flex-wrap gap-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/consultation"
+              className="group relative overflow-hidden rounded-full bg-black px-6 sm:px-8 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
             >
-              <Link
-                href="/consultation"
-                className="group relative overflow-hidden rounded-full bg-black px-8 py-4 inline-flex items-center gap-3"
+              <motion.span
+                className="relative z-10 text-white font-medium"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.span
-                  className="relative z-10 text-white font-medium"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  Contact Us
-                </motion.span>
-                <motion.div
-                  className="absolute right-4 w-4 h-4 bg-white rounded-full"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </Link>
-            </motion.div>
+                Contact Us
+              </motion.span>
+              <motion.div
+                className="absolute right-4 w-4 h-4 bg-white rounded-full"
+                initial={{ scale: 0.8 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.3 }}
+              />
+            </Link>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+            <Link
+              href="/samples"
+              className="group relative overflow-hidden rounded-full bg-black px-6 sm:px-8 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
             >
-              <Link
-                href="/samples"
-                className="group relative overflow-hidden rounded-full bg-black px-8 py-4 inline-flex items-center gap-3"
+              <motion.span
+                className="relative z-10 text-white font-medium"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.span
-                  className="relative z-10 text-white font-medium"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  Explore More
-                </motion.span>
-                <motion.div
-                  className="absolute right-4 w-4 h-4 bg-white rounded-full"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </Link>
-            </motion.div>
+                Explore More
+              </motion.span>
+              <motion.div
+                className="absolute right-4 w-4 h-4 bg-white rounded-full"
+                initial={{ scale: 0.8 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.3 }}
+              />
+            </Link>
           </div>
         </motion.div>
       </div>

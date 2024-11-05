@@ -530,6 +530,224 @@ const allStudyCards: StudyCard[] = [
     description:
       'Leading private university excelling in business, international studies, and Korean language education.',
   },
+  // South African Universities
+  {
+    title: 'University of Cape Town',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'South Africa',
+    country: 'South Africa',
+    continent: 'Africa',
+    universityName: 'UCT',
+    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'February 2025',
+    region: 'Africa',
+    description:
+      'Leading African university known for research excellence and innovation. Beautiful campus with Table Mountain views.',
+  },
+  {
+    title: 'University of the Witwatersrand',
+    dates: 'Semester-based | Research Programs',
+    location: 'South Africa',
+    country: 'South Africa',
+    continent: 'Africa',
+    universityName: 'Wits',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
+    category: 'Engineering & Mining',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'February 2025',
+    region: 'Africa',
+    description:
+      'Premier institution for mining engineering and research in Africa. Strong industry connections and innovative programs.',
+  },
+  // Argentinian Universities
+  {
+    title: 'University of Buenos Aires',
+    dates: 'Fall & Spring Semesters | Research Programs',
+    location: 'Argentina',
+    country: 'Argentina',
+    continent: 'South America',
+    universityName: 'UBA',
+    image: 'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae',
+    category: 'Arts & Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'March 2025',
+    region: 'South America',
+    description:
+      'Largest university in Argentina with rich academic tradition. Excellence in research and cultural studies.',
+  },
+  {
+    title: 'National University of Córdoba',
+    dates: 'Semester Exchange | Cultural Programs',
+    location: 'Argentina',
+    country: 'Argentina',
+    continent: 'South America',
+    universityName: 'UNC',
+    image: 'https://images.unsplash.com/photo-1576495199011-eb94736d05d6',
+    category: 'Medicine & Technology',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'March 2025',
+    region: 'South America',
+    description:
+      'Historic institution known for medical sciences and technological innovation. Beautiful colonial architecture.',
+  },
+  // Croatian Universities
+  {
+    title: 'University of Zagreb',
+    dates: 'Fall & Spring Semesters | Full Academic Year Available',
+    location: 'Croatia',
+    country: 'Croatia',
+    continent: 'Europe',
+    universityName: 'UNIZG',
+    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27',
+    category: 'Medicine & Life Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'October 2024',
+    region: 'Europe',
+    description: 'Oldest and largest Croatian university, known for medical sciences and research excellence.',
+  },
+  {
+    title: 'University of Split',
+    dates: 'Semester-based Programs | Summer Schools',
+    location: 'Croatia',
+    country: 'Croatia',
+    continent: 'Europe',
+    universityName: 'UNIST',
+    image: 'https://images.unsplash.com/photo-1560523159-6b681a1e1852',
+    category: 'Maritime Studies & Engineering',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'October 2024',
+    region: 'Europe',
+    description: 'Leading institution in maritime studies and Mediterranean research.',
+  },
+  {
+    title: 'University of Rijeka',
+    dates: 'Fall & Spring Semesters | Research Programs',
+    location: 'Croatia',
+    country: 'Croatia',
+    continent: 'Europe',
+    universityName: 'UNIRI',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
+    category: 'Technology & Innovation',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'October 2024',
+    region: 'Europe',
+    description: 'Modern research university with strong focus on technology and innovation.',
+  },
+  {
+    title: 'University of Osijek',
+    dates: 'Flexible Entry | Year-round Programs',
+    location: 'Croatia',
+    country: 'Croatia',
+    continent: 'Europe',
+    universityName: 'UNIOS',
+    image: 'https://images.unsplash.com/photo-1576495199011-eb94736d05d6',
+    category: 'Agricultural Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'October 2024',
+    region: 'Europe',
+    description: 'Excellence in agricultural sciences and regional development studies.',
+  },
+  {
+    title: 'University of Zadar',
+    dates: 'Semester Exchange | Summer Programs',
+    location: 'Croatia',
+    country: 'Croatia',
+    continent: 'Europe',
+    universityName: 'UNIZD',
+    image: 'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae',
+    category: 'Humanities & Social Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'October 2024',
+    region: 'Europe',
+    description: 'Historic university specializing in humanities and Mediterranean studies.',
+  },
+  // Spanish Universities
+  {
+    title: 'University of Barcelona',
+    dates: 'Fall & Spring Semesters | Research Programs',
+    location: 'Spain',
+    country: 'Spain',
+    continent: 'Europe',
+    universityName: 'UB',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
+    category: 'Medicine & Sciences',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Leading research institution in Spain with excellence in medicine and sciences.',
+  },
+  {
+    title: 'Complutense University of Madrid',
+    dates: 'Semester Programs | Summer Courses',
+    location: 'Spain',
+    country: 'Spain',
+    continent: 'Europe',
+    universityName: 'UCM',
+    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d',
+    category: 'Arts & Humanities',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Historic Spanish university known for arts, humanities, and cultural studies.',
+  },
+  {
+    title: 'University of Valencia',
+    dates: 'Fall & Spring Semesters | Research Options',
+    location: 'Spain',
+    country: 'Spain',
+    continent: 'Europe',
+    universityName: 'UV',
+    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1',
+    category: 'Life Sciences & Business',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Comprehensive university with strong programs in life sciences and business.',
+  },
+  {
+    title: 'Autonomous University of Barcelona',
+    dates: 'Flexible Entry | Year-round Programs',
+    location: 'Spain',
+    country: 'Spain',
+    continent: 'Europe',
+    universityName: 'UAB',
+    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54',
+    category: 'Engineering & Technology',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Leading institution in engineering and technological innovation.',
+  },
+  {
+    title: 'University of Granada',
+    dates: 'Semester Exchange | Language Programs',
+    location: 'Spain',
+    country: 'Spain',
+    continent: 'Europe',
+    universityName: 'UGR',
+    image: 'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae',
+    category: 'Language & Cultural Studies',
+    programType: 'University',
+    duration: '2 Semesters',
+    startDate: 'September 2024',
+    region: 'Europe',
+    description: 'Renowned for language programs and cultural immersion experiences.',
+  }
 ]
 
 const countryData = {
@@ -572,7 +790,9 @@ const countryMapping = {
   'France': 'France',
   'Denmark': 'Denmark',
   'Qatar': 'Qatar',
-  'South Korea': 'South Korea'
+  'South Korea': 'South Korea',
+  'South Africa': 'South Africa',
+  'Argentina': 'Argentina'
 }
 
 export default function DestinationGrid() {
@@ -628,14 +848,14 @@ export default function DestinationGrid() {
               <h2 className="text-4xl font-normal mb-4">
                 Global Academic Excellence
               </h2>
-              <p className="text-gray-600 max-w-2xl">
+              <p className="text-gray-600 ">
                 Join a global community of scholars and
                 innovators shaping tomorrow's breakthroughs.From cutting-edge research labs to historic
                 lecture halls, discover programs that blend academic rigor with
                 cultural exploration. 
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600">Sort By:</span>
               <select className="p-2 rounded-lg bg-transparent border border-gray-200">
                 <option>Popularity</option>
@@ -643,11 +863,11 @@ export default function DestinationGrid() {
                 <option>Price: High to Low</option>
                 <option>Duration</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -663,9 +883,9 @@ export default function DestinationGrid() {
                   scale: 1.02,
                   transition: { duration: 0.2 },
                 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="relative h-48">
+                <div className="relative h-40 sm:h-48">
                   <Image
                     src={card.image}
                     alt={card.title}
@@ -692,10 +912,10 @@ export default function DestinationGrid() {
             ))}
           </motion.div>
 
-          <div className="flex justify-center items-center gap-2 mt-12">
+          <div className="flex justify-center items-center gap-1 sm:gap-2 mt-8 sm:mt-12">
             <button
               onClick={handlePrevPage}
-              className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center ${
+              className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-gray-300 flex items-center justify-center ${
                 currentPage === 1
                   ? 'text-gray-300 cursor-not-allowed'
                   : 'text-gray-600 hover:bg-gray-100'
@@ -708,7 +928,7 @@ export default function DestinationGrid() {
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`w-8 h-8 rounded-full ${
+                className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full ${
                   page === currentPage
                     ? 'bg-gray-900 text-white'
                     : 'text-gray-600 hover:bg-gray-100'
@@ -719,7 +939,7 @@ export default function DestinationGrid() {
             ))}
             <button
               onClick={handleNextPage}
-              className={`w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center ${
+              className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-gray-300 flex items-center justify-center ${
                 currentPage === totalPages
                   ? 'text-gray-300 cursor-not-allowed'
                   : 'text-gray-600 hover:bg-gray-100'

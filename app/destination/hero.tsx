@@ -46,16 +46,15 @@ const AnimatedSelect = ({
       <motion.button
         whileTap={{ scale: 0.995 }}
         onClick={() => !disabled && setIsOpen(!isOpen)}
-        className={`w-full p-3 rounded-lg bg-gray-50 flex justify-between items-center ${
-          disabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-100'
-        }`}
+        className={`w-full p-2 sm:p-3 rounded-lg bg-gray-50 flex justify-between items-center text-xs sm:text-sm
+          ${disabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-100'}`}
       >
         <span className={value ? 'text-gray-900' : 'text-gray-500'}>
           {value || placeholder}
         </span>
         <motion.svg
           animate={{ rotate: isOpen ? 180 : 0 }}
-          className="w-5 h-5 text-gray-500"
+          className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -74,7 +73,8 @@ const AnimatedSelect = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-50 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden"
+            className="absolute z-50 w-full mt-1 sm:mt-2 bg-white rounded-lg shadow-lg 
+              border border-gray-100 overflow-hidden"
           >
             {options.map((option) => (
               <motion.button
@@ -84,9 +84,8 @@ const AnimatedSelect = ({
                   onChange(option)
                   setIsOpen(false)
                 }}
-                className={`w-full px-4 py-2 text-left ${
-                  value === option ? 'bg-gray-50 text-gray-900' : 'text-gray-600'
-                }`}
+                className={`w-full px-3 sm:px-4 py-1.5 sm:py-2 text-left text-xs sm:text-sm
+                  ${value === option ? 'bg-gray-50 text-gray-900' : 'text-gray-600'}`}
               >
                 {option}
               </motion.button>
@@ -106,21 +105,23 @@ type CountryInfo = {
 
 const CountryList = ({ countries }: { countries: [string, CountryInfo][] }) => {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 overflow-x-auto pb-2 -mx-2 px-2">
       {countries.map(([key, country]) => (
         <div
           key={country.code}
-          className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-50 rounded-full px-3 py-1"
+          className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 transition-colors rounded-full px-2 sm:px-3 py-1"
         >
           <ReactCountryFlag
             countryCode={country.code}
             svg
             style={{
-              width: '1em',
-              height: '1em',
+              width: '1.2em',
+              height: '1.2em',
             }}
+            className="rounded-full shadow-sm"
+            title={country.name}
           />
-          <span>{country.name}</span>
+          <span className="hidden sm:inline">{country.name}</span>
         </div>
       ))}
     </div>
@@ -157,6 +158,14 @@ export default function DestinationHero() {
         return Object.entries(countryData).filter(([key]) => 
           ['Study in UK', 'Study in Germany', 'Study in Spain', 'Study in Netherlands', 'Study in Croatia'].includes(key)
         )
+      case 'Africa':
+        return Object.entries(countryData).filter(([key]) => 
+          ['Study in South Africa'].includes(key)
+        )
+      case 'South America':
+        return Object.entries(countryData).filter(([key]) => 
+          ['Study in Argentina'].includes(key)
+        )
       case 'All':
         return Object.entries(countryData)
       default:
@@ -165,31 +174,31 @@ export default function DestinationHero() {
   }
 
   return (
-    <main className="min-h-screen relative mt-28">
+    <main className="min-h-[80vh] relative mt-28 sm:mt-16 md:mt-28 lg:mt-32">
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundImages[0]}
           alt="Modern university campus"
           fill
-          className="object-cover"
+          className="object-cover brightness-75"
           priority
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 pt-20 pb-4">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 pt-12 sm:pt-16 md:pt-20 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white max-w-4xl"
+          className="text-white max-w-4xl px-2 sm:px-4 lg:px-6"
         >
-          <h1 className="text-7xl font-light mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-3 sm:mb-4 leading-tight">
             Discover Your Next
-            <br />
+            <br className="hidden sm:block" />
             Study Adventure
           </h1>
-          <p className="text-xl opacity-90 max-w-2xl">
+          <p className="text-sm sm:text-base md:text-lg opacity-90 max-w-2xl">
             Explore curated study abroad opportunities that fulfill your
             academic dreams, offering unforgettable moments of learning,
             cultural immersion, and personal growth at prestigious universities
@@ -201,15 +210,16 @@ export default function DestinationHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-12 bg-white rounded-3xl p-8 shadow-lg"
+          className="mt-6 sm:mt-8 md:mt-10 bg-white rounded-xl sm:rounded-2xl md:rounded-3xl 
+            p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg mx-2 sm:mx-4 md:mx-6"
         >
-          <h2 className="text-3xl font-light mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-light mb-4 sm:mb-6">
             Explore Best Universities
           </h2>
 
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            <div className="space-y-2">
-              <label className="block text-sm text-gray-600">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 md:gap-6 mb-3 sm:mb-4 md:mb-6">
+            <div className="space-y-1 sm:space-y-2">
+              <label className="block text-xs sm:text-sm text-gray-600">
                 Select Continent
               </label>
               <AnimatedSelect
@@ -220,8 +230,8 @@ export default function DestinationHero() {
               />
             </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm text-gray-600">
+            <div className="space-y-1 sm:space-y-2">
+              <label className="block text-xs sm:text-sm text-gray-600">
                 Select Country
               </label>
               <AnimatedSelect
@@ -236,23 +246,24 @@ export default function DestinationHero() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <CountryList countries={Object.entries(countryData)} />
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center">
               <button
                 onClick={clearFilters}
-                className="text-sm text-gray-500 hover:text-gray-700 "
+                className="text-xs sm:text-sm text-gray-500 hover:text-gray-700"
               >
                 Clear Selection
               </button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-gray-700 text-white px-8 py-3 rounded-lg flex items-center gap-2"
+                className="bg-gray-700 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 
+                  rounded-lg text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2"
               >
                 View Universities
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
